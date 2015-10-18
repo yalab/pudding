@@ -25,7 +25,7 @@ bool HelloWorld::init()
     {
         return false;
     }
-    auto node = CSLoader::createNode("res/MainScene.csb");
+    auto node = CSLoader::createNode("Scene/MainScene.csb");
     this->addChild(node);
     return true;
 }

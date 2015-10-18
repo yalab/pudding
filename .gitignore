@@ -26,3 +26,4 @@ npm-debug.log
 /proj.ios_mac/build/
 Breakpoints_v2.xcbkptlist
 UserInterfaceState.xcuserstate
+/Resources/*
