@@ -7,12 +7,8 @@ USING_NS_CC;
 using namespace cocostudio;
 using namespace cocos2d::ui;
 
-const static int NEXT_STONE_NUM = 5;
-
-const int WIDTH_NUM = 5;
-const int HEIGHT_NUM = 5;
-
-std::array<std::shared_ptr<Bubble>, WIDTH_NUM * HEIGHT_NUM> BUBBLES;
+std::array<std::shared_ptr<Bubble>, MainScene::MAX::X * MainScene::MAX::Y> MainScene::BUBBLES;
+std::array<std::shared_ptr<Bubble>, MainScene::MAX::NEXT> MainScene::NEXT_BUBBLES;
 
 Scene* MainScene::createScene()
 {
@@ -33,19 +29,24 @@ bool MainScene::init()
     this->addChild(csb);
     
     auto nextArea = csb->getChildByName("NextArea");
-    for(int i = 0; i < NEXT_STONE_NUM; i++){
-        auto image = ImageView::create("sweets/item_cake.png", ImageView::TextureResType::PLIST);
-        image->setScale(0.5f);
-        nextArea->addChild(image);
+    for(int i = 0; i < MAX::NEXT; i++){
+        auto bubble = Bubble::create(this, nextArea, 0, i, false);
+        NEXT_BUBBLES[i] = bubble;
     }
     
     auto board = csb->getChildByName("Board");
-    for(int y = 0; y < HEIGHT_NUM; y++){
-        for(int x = 0; x < WIDTH_NUM; x++){
-            auto bubble = Bubble::create(board, x, y);
+    for(int y = 0; y < MAX::Y; y++){
+        for(int x = 0; x < MAX::X; x++){
+            auto bubble = Bubble::create(this, board, x, y, true);
+            auto n = y * MAX::X + x;
+            BUBBLES[n] = bubble;
         }
-        
     }
     
     return true;
+}
+
+std::shared_ptr<Bubble> MainScene::currentBubble()
+{
+    return NEXT_BUBBLES.front();
 }
