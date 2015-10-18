@@ -9,6 +9,7 @@
 .gradle
 Thumbs.db
 npm-debug.log
+/bin
 /proj.android/assets/
 /proj.android/bin/
 /proj.android/gen/
@@ -21,5 +22,7 @@ npm-debug.log
 /proj.android/ant.properties
 /proj.android/build
 /proj.ios_mac/Pods
+/cocos2d/build
+/proj.ios_mac/build/
 Breakpoints_v2.xcbkptlist
 UserInterfaceState.xcuserstate
