@@ -22,7 +22,7 @@ npm-debug.log
 /proj.android/ant.properties
 /proj.android/build
 /proj.ios_mac/Pods
-/cocos2d/build
+/cocos2d/build/build
 /proj.ios_mac/build/
 Breakpoints_v2.xcbkptlist
 UserInterfaceState.xcuserstate
