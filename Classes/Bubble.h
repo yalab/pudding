@@ -19,20 +19,24 @@ class MainScene;
 
 class Bubble{
 public:
-    enum TYPE {CAKE, PUDDING, CANDY, COOKIE};
-    Bubble(MainScene* scene, Node* board, const int x, const int y, Bubble::TYPE type, bool removable);
+    enum TYPE {BLUE, RED, GREEN, BOMB, LAST};
+    Bubble(MainScene* scene, Node* board, const int x, const int y, bool removable);
     virtual ~Bubble(){};
     static std::shared_ptr<Bubble> create(MainScene* scene, Node* board, const int x, const int y, bool remobable);
     inline TYPE getType(){ return _type; }
+    void moveTo(const int x, const int y);
+    void setRandomType();    
 private:
+    void render();
+    const std::string path(TYPE type);
     void onTouchBegan();
-    void setType(TYPE type);
     int _x;
     int _y;
     TYPE _type;
     bool _remobable;
     MainScene* _scene;
     Button* _image;
+    void onDeleted();
 };
 
 #endif /* defined(__pudding__Bubble__) */

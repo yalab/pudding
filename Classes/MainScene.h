@@ -14,6 +14,7 @@ public:
 
     static cocos2d::Scene* createScene();
     std::shared_ptr<Bubble> currentBubble();
+    void slideNextBubble();
     virtual bool init();
     CREATE_FUNC(MainScene);
 };
