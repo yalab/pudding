@@ -17,27 +17,28 @@
             <FileData Type="MarkedSubImage" Path="Image/bg_story.png" Plist="MainScene/MainScene.plist" />
             <BlendFunc Src="770" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Board" ActionTag="1429186130" Tag="10" IconVisible="False" LeftMargin="175.8952" RightMargin="264.1048" TopMargin="702.3019" BottomMargin="57.6981" TouchEnable="True" BackColorAlpha="102" ComboBoxIndex="1" ColorAngle="90.0000" ctype="PanelObjectData">
-            <Size X="200.0000" Y="200.0000" />
+          <AbstractNodeData Name="Board" ActionTag="1429186130" Tag="10" IconVisible="False" LeftMargin="24.6847" RightMargin="335.3153" TopMargin="591.7527" BottomMargin="68.2473" TouchEnable="True" BackColorAlpha="102" ComboBoxIndex="1" ColorAngle="90.0000" ctype="PanelObjectData">
+            <Size X="280.0000" Y="300.0000" />
             <AnchorPoint />
-            <Position X="175.8952" Y="57.6981" />
+            <Position X="24.6847" Y="68.2473" />
             <Scale ScaleX="2.1246" ScaleY="2.1657" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.2748" Y="0.0601" />
-            <PreSize X="0.0000" Y="0.0000" />
+            <PrePosition X="0.0386" Y="0.0711" />
+            <PreSize X="0.4375" Y="0.3125" />
             <SingleColor A="255" R="150" G="200" B="255" />
             <FirstColor A="255" R="150" G="200" B="255" />
             <EndColor A="255" R="255" G="255" B="255" />
             <ColorVector ScaleY="1.0000" />
           </AbstractNodeData>
-          <AbstractNodeData Name="NextArea" ActionTag="960787467" Tag="6" IconVisible="True" LeftMargin="74.3328" RightMargin="565.6672" TopMargin="865.5017" BottomMargin="94.4983" ctype="SingleNodeObjectData">
-            <Size X="0.0000" Y="0.0000" />
-            <AnchorPoint />
-            <Position X="74.3328" Y="94.4983" />
-            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+          <AbstractNodeData Name="CurrentCount" ActionTag="-661567336" Tag="7" IconVisible="False" LeftMargin="179.5000" RightMargin="419.5000" TopMargin="87.0000" BottomMargin="827.0000" LabelText="00" ctype="TextBMFontObjectData">
+            <Size X="41.0000" Y="46.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="200.0000" Y="850.0000" />
+            <Scale ScaleX="2.0000" ScaleY="2.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.1161" Y="0.0984" />
-            <PreSize X="0.0000" Y="0.0000" />
+            <PrePosition X="0.3125" Y="0.8854" />
+            <PreSize X="0.0641" Y="0.0479" />
+            <LabelBMFontFile_CNB Type="Normal" Path="Fonts/BasicLabel.fnt" Plist="" />
           </AbstractNodeData>
         </Children>
       </ObjectData>

@@ -12,10 +12,12 @@
           <Image Name="icon_star_off.png" />
           <Image Name="icon_time.png" />
         </Folder>
-        <Folder Name="Scene" />
         <Folder Name="MainScene">
           <Project Name="MainScene.csd" Type="Scene" />
           <PlistInfo Name="MainScene.csi" Type="Plist" />
+        </Folder>
+        <Folder Name="Fonts">
+          <Fnt Name="BasicLabel.fnt" />
         </Folder>
       </RootFolder>
     </Group>

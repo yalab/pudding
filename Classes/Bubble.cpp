@@ -19,7 +19,12 @@ Bubble::Bubble(MainScene* scene, Node* board, const int x, const int y, bool rem
 , _y(y)
 , _remobable(remobable)
 , _image(nullptr)
+, _frame(nullptr)
 {
+    _frame = Node::create();
+    auto pathName = path(Bubble::TYPE::BLUE);
+    _image = Button::create(pathName, pathName, pathName, Button::TextureResType::PLIST);
+    _frame->addChild(_image);
     setRandomType();
     _image->addTouchEventListener([&](Ref* ref, Widget::TouchEventType eventType){
         if(eventType == Widget::TouchEventType::BEGAN){
@@ -27,7 +32,7 @@ Bubble::Bubble(MainScene* scene, Node* board, const int x, const int y, bool rem
         }
     });
     _image->setScale(0.2f);
-    board->addChild(_image);
+    board->addChild(_frame);
     moveTo(x, y);
 }
 
@@ -40,9 +45,7 @@ std::shared_ptr<Bubble> Bubble::create(MainScene* scene, Node* board, const int 
 
 void Bubble::onTouchBegan()
 {
-    if(_scene->currentBubble()->getType() == this->getType()){
-        onDeleted();
-    }
+    _scene->selectBubble(this);
     log("%i, %i, %i", _x, _y, _type);
 }
 
@@ -62,12 +65,6 @@ const std::string Bubble::path(TYPE type)
     }
 }
 
-void Bubble::onDeleted()
-{
-    _image->setVisible(false);
-    _scene->slideNextBubble();
-}
-
 void Bubble::setRandomType()
 {
     std::random_device rnd;
@@ -75,12 +72,9 @@ void Bubble::setRandomType()
     std::uniform_int_distribution<> randomType(0, TYPE::LAST - 1);
     _type = static_cast<TYPE>(randomType(mt));
     const std::string pathName = path(_type);
-    if(_image){
-        _image->loadTextureNormal(pathName, Button::TextureResType::PLIST);
-    }else{
-        _image = Button::create(pathName, pathName, pathName, Button::TextureResType::PLIST);
-    }
-    
+    _image->loadTextureNormal(pathName, Button::TextureResType::PLIST);
+    _image->loadTextureDisabled(pathName, Button::TextureResType::PLIST);
+    _image->loadTexturePressed(pathName, Button::TextureResType::PLIST);
 }
 
 void Bubble::moveTo(const int x, const int y)
@@ -90,5 +84,5 @@ void Bubble::moveTo(const int x, const int y)
     Size size(20, 20);
     auto pos = Vec2(frameMargin + size.width * x + margin * x,
                     frameMargin + size.height * y + margin * y);
-    _image->setPosition(pos);
+    _frame->setPosition(pos);
 }
