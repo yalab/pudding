@@ -19,7 +19,7 @@ class MainScene;
 
 class Bubble{
 public:
-    enum TYPE {BLUE, RED, GREEN, BOMB, LAST};
+    enum TYPE {WHITE, RED, BLUE, YELLOW, BOMB, LAST};
     Bubble(MainScene* scene, Node* board, const int x, const int y, bool removable);
     virtual ~Bubble()
     {
@@ -31,6 +31,9 @@ public:
     inline TYPE getType(){ return _type; }
     void moveTo(const int x, const int y);
     void setRandomType();
+    void hide();
+    void nextTurn();
+    const std::string getCounterName();
 private:
     void render();
     const std::string path(TYPE type);
@@ -42,6 +45,7 @@ private:
     MainScene* _scene;
     Button* _image;
     Node* _frame;
+    int _invisibleTurn;
 };
 
 #endif /* defined(__pudding__Bubble__) */

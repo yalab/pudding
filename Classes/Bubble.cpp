@@ -45,7 +45,7 @@ std::shared_ptr<Bubble> Bubble::create(MainScene* scene, Node* board, const int 
 
 void Bubble::onTouchBegan()
 {
-    _scene->selectBubble(this);
+    _scene->touchBubble(this);
     log("%i, %i, %i", _x, _y, _type);
 }
 
@@ -56,10 +56,12 @@ const std::string Bubble::path(TYPE type)
             return "Image/icon_soul.png";
         case TYPE::RED:
             return "Image/icon_pumpkin.png";
-        case TYPE::GREEN:
+        case TYPE::YELLOW:
             return "Image/icon_star_off.png";
-        case TYPE::BOMB:
+        case TYPE::WHITE:
             return "Image/icon_skull.png";
+        case TYPE::BOMB:
+            return "Image/icon_time.png";
         case TYPE::LAST:
             CCASSERT(false, "TYPE::LAST is invalid.");
     }
@@ -69,7 +71,7 @@ void Bubble::setRandomType()
 {
     std::random_device rnd;
     std::mt19937 mt(rnd());
-    std::uniform_int_distribution<> randomType(0, TYPE::LAST - 1);
+    std::uniform_int_distribution<> randomType(0, TYPE::BOMB - 1);
     _type = static_cast<TYPE>(randomType(mt));
     const std::string pathName = path(_type);
     _image->loadTextureNormal(pathName, Button::TextureResType::PLIST);
@@ -85,4 +87,25 @@ void Bubble::moveTo(const int x, const int y)
     auto pos = Vec2(frameMargin + size.width * x + margin * x,
                     frameMargin + size.height * y + margin * y);
     _frame->setPosition(pos);
+}
+
+void Bubble::hide()
+{
+    _image->setVisible(false);
+    _invisibleTurn = static_cast<int>(getType()) + 1;
+    setRandomType();
+}
+
+void Bubble::nextTurn()
+{
+    if(_invisibleTurn > 0){
+        _invisibleTurn --;
+    }else{
+        _image->setVisible(true);
+    }
+}
+
+const std::string Bubble::getCounterName()
+{
+    return "count_" + std::to_string(static_cast<int>(getType()));
 }

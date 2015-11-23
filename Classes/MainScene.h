@@ -15,16 +15,20 @@ public:
     
     MainScene()
     : _currentType(Bubble::TYPE::LAST)
-    , _count(0)
     {
+        for(int i = 0; i < Bubble::TYPE::LAST; i++){
+            _counts[i] = 0;
+        }
     }
-    void selectBubble(Bubble* bubble);
+    void touchBubble(Bubble* bubble);
     inline void setCurrentType(Bubble::TYPE type){ _currentType = type; }
     virtual bool init();
     CREATE_FUNC(MainScene);
     Bubble::TYPE _currentType;
-    int _count;
+    std::unordered_map<int, int> _counts;
     Node* _csb;
+private:
+    void setCounter(const std::string& name, const int count);
 };
 
 #endif // __MAIN_SCENE_H__

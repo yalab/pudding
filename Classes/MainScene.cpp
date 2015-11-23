@@ -38,16 +38,30 @@ bool MainScene::init()
     return true;
 }
 
-void MainScene::selectBubble(Bubble* bubble)
+void MainScene::touchBubble(Bubble* bubble)
 {
-    log("count %i", _count);
+    _counts[bubble->getType()] ++;
     if(_currentType == bubble->getType()){
-        _count ++;
+        _counts[Bubble::TYPE::LAST] ++;
     }else{
         _currentType = bubble->getType();
-        _count = 1;
+        _counts[Bubble::TYPE::LAST] = 0;
     }
+    bubble->hide();
+    setCounter("combo_count", _counts[Bubble::TYPE::LAST]);
+    setCounter(bubble->getCounterName(), _counts[bubble->getType()]);
+    for(auto b: BUBBLES){
+        b->nextTurn();
+    }
+    for(auto c: _counts){
+        log("count: %i %i", c.first, c.second);
+    }
+}
+
+void MainScene::setCounter(const std::string& name, const int count)
+{
     std::stringstream ss;
-    ss << _count;
-    static_cast<TextBMFont*>(_csb->getChildByName("CurrentCount"))->setString(ss.str());
+    ss << count;
+    auto counter = static_cast<TextBMFont*>(_csb->getChildByName(name));
+    counter->setString(ss.str());
 }
