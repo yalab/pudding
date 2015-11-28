@@ -11,8 +11,8 @@
 		1AC6FB30180E99EB004C840B /* libcocos2d iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC6FB07180E9839004C840B /* libcocos2d iOS.a */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
+		242CC47C1C09AA4900C5E8B2 /* Fonts in Resources */ = {isa = PBXBuildFile; fileRef = 242CC47B1C09AA4900C5E8B2 /* Fonts */; };
 		249DE9D61BD3911400DEBAE5 /* Default in Resources */ = {isa = PBXBuildFile; fileRef = 249DE9D21BD3911400DEBAE5 /* Default */; };
-		249DE9D71BD3911400DEBAE5 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 249DE9D31BD3911400DEBAE5 /* fonts */; };
 		249DE9D81BD3911400DEBAE5 /* Image in Resources */ = {isa = PBXBuildFile; fileRef = 249DE9D41BD3911400DEBAE5 /* Image */; };
 		249DE9DC1BD3A96B00DEBAE5 /* Bubble.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 249DE9DA1BD3A96B00DEBAE5 /* Bubble.cpp */; };
 		24A82D5B1BE4C8DD00F2FE60 /* MainScene in Resources */ = {isa = PBXBuildFile; fileRef = 24A82D5A1BE4C8DD00F2FE60 /* MainScene */; };
@@ -103,8 +103,8 @@
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D6058910D05DD3D006BFB54 /* pudding-mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "pudding-mobile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		242CC47B1C09AA4900C5E8B2 /* Fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Fonts; path = ../Resources/Fonts; sourceTree = "<group>"; };
 		249DE9D21BD3911400DEBAE5 /* Default */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Default; path = ../Resources/Default; sourceTree = "<group>"; };
-		249DE9D31BD3911400DEBAE5 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = fonts; path = ../Resources/fonts; sourceTree = "<group>"; };
 		249DE9D41BD3911400DEBAE5 /* Image */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Image; path = ../Resources/Image; sourceTree = "<group>"; };
 		249DE9DA1BD3A96B00DEBAE5 /* Bubble.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Bubble.cpp; sourceTree = "<group>"; };
 		249DE9DB1BD3A96B00DEBAE5 /* Bubble.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bubble.h; sourceTree = "<group>"; };
@@ -240,9 +240,9 @@
 		249DE9C51BD38FD900DEBAE5 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				242CC47B1C09AA4900C5E8B2 /* Fonts */,
 				24A82D5A1BE4C8DD00F2FE60 /* MainScene */,
 				249DE9D21BD3911400DEBAE5 /* Default */,
-				249DE9D31BD3911400DEBAE5 /* fonts */,
 				249DE9D41BD3911400DEBAE5 /* Image */,
 			);
 			name = Resources;
@@ -448,7 +448,6 @@
 				5087E78117EB970100C73F5D /* Icon-120.png in Resources */,
 				5087E78617EB970100C73F5D /* Icon-76.png in Resources */,
 				5087E77F17EB970100C73F5D /* Default@2x.png in Resources */,
-				249DE9D71BD3911400DEBAE5 /* fonts in Resources */,
 				50EF629917ECD46A001EB2F8 /* Icon-100.png in Resources */,
 				5087E78317EB970100C73F5D /* Icon-152.png in Resources */,
 				5087E77D17EB970100C73F5D /* Default-568h@2x.png in Resources */,
@@ -456,6 +455,7 @@
 				521A8E6519F0C34300D177D7 /* Default-736h@3x.png in Resources */,
 				249DE9D61BD3911400DEBAE5 /* Default in Resources */,
 				50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */,
+				242CC47C1C09AA4900C5E8B2 /* Fonts in Resources */,
 				5087E78017EB970100C73F5D /* Icon-114.png in Resources */,
 				50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */,
 				50EF629617ECD46A001EB2F8 /* Icon-40.png in Resources */,
