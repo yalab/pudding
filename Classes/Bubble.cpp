@@ -47,7 +47,10 @@ std::shared_ptr<Bubble> Bubble::create(MainScene* scene, Node* board, const int 
 
 void Bubble::onTouchBegan()
 {
-    _scene->touchBubble(this);
+    hide();
+    _scene->countBubble(this);
+    setRandomType();
+
     log("%i, %i, %i", _x, _y, _type);
 }
 
@@ -96,7 +99,6 @@ void Bubble::hide()
 {
     _image->setVisible(false);
     _invisibleTurn = static_cast<int>(getType()) + 1;
-    setRandomType();
 }
 
 void Bubble::nextTurn()

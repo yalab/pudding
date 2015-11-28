@@ -20,7 +20,7 @@ public:
 //            _counts[i] = 0;
         }
     }
-    void touchBubble(Bubble* bubble);
+    void countBubble(Bubble* bubble);
     inline void setCurrentType(Bubble::TYPE type){ _currentType = type; }
     virtual bool init();
     CREATE_FUNC(MainScene);

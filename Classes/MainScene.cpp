@@ -38,7 +38,7 @@ bool MainScene::init()
     return true;
 }
 
-void MainScene::touchBubble(Bubble* bubble)
+void MainScene::countBubble(Bubble* bubble)
 {
     _counts[bubble->getType()] ++;
     if(_currentType == bubble->getType()){
@@ -47,14 +47,10 @@ void MainScene::touchBubble(Bubble* bubble)
         _currentType = bubble->getType();
         _counts[Bubble::TYPE::LAST] = 0;
     }
-    bubble->hide();
     setCounter("combo_count", _counts[Bubble::TYPE::LAST]);
     setCounter(bubble->getCounterName(), _counts[bubble->getType()]);
     for(auto b: BUBBLES){
         b->nextTurn();
-    }
-    for(auto c: _counts){
-        log("count: %i %i", c.first, c.second);
     }
 }
 
