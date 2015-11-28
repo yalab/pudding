@@ -27,6 +27,7 @@ public:
     Bubble::TYPE _currentType;
     std::unordered_map<int, int> _counts;
     Node* _csb;
+    void incrementEffect(Node* node);
 private:
     void setCounter(const std::string& name, const int count);
 };

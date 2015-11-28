@@ -124,7 +124,7 @@
             <PreSize X="0.0406" Y="0.0479" />
             <LabelBMFontFile_CNB Type="Normal" Path="Fonts/BasicLabel.fnt" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="BitmapFontLabel_1" ActionTag="1886925383" Tag="13" IconVisible="False" LeftMargin="51.1074" RightMargin="470.8926" TopMargin="50.2283" BottomMargin="863.7717" LabelText="combo!" ctype="TextBMFontObjectData">
+          <AbstractNodeData Name="combo_label" ActionTag="1886925383" VisibleForFrame="False" Tag="13" IconVisible="False" LeftMargin="51.1074" RightMargin="470.8926" TopMargin="50.2283" BottomMargin="863.7717" LabelText="combo!" ctype="TextBMFontObjectData">
             <Size X="118.0000" Y="46.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="110.1074" Y="886.7717" />

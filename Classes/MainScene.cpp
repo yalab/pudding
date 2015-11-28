@@ -26,7 +26,7 @@ bool MainScene::init()
     SpriteFrameCache::getInstance()->addSpriteFramesWithFile("Image/sweets.plist");
     _csb = CSLoader::createNode("MainScene/MainScene.csb");
     this->addChild(_csb);
-
+    setCounter("combo_count", 0);
     auto board = _csb->getChildByName("Board");
     for(int y = 0; y < MAX::Y; y++){
         for(int x = 0; x < MAX::X; x++){
@@ -41,9 +41,13 @@ bool MainScene::init()
 void MainScene::countBubble(Bubble* bubble)
 {
     _counts[bubble->getType()] ++;
+    auto combo = _csb->getChildByName("combo_label");
     if(_currentType == bubble->getType()){
         _counts[Bubble::TYPE::LAST] ++;
+        combo->setVisible(true);
+        incrementEffect(combo);
     }else{
+        combo->setVisible(false);
         _currentType = bubble->getType();
         _counts[Bubble::TYPE::LAST] = 0;
     }
@@ -60,4 +64,13 @@ void MainScene::setCounter(const std::string& name, const int count)
     ss << count;
     auto counter = static_cast<TextBMFont*>(_csb->getChildByName(name));
     counter->setString(ss.str());
+    incrementEffect(counter);
+}
+
+void MainScene::incrementEffect(Node* node)
+{
+    auto scale = node->cocos2d::Node::getScale();
+    auto seq = Sequence::create(ScaleTo::create(0.1f, scale * 1.2),
+                                ScaleTo::create(0.1f, scale      ), nullptr);
+    node->runAction(seq);
 }
