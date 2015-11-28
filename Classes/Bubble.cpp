@@ -13,6 +13,8 @@
 
 using namespace cocos2d::ui;
 
+const float Bubble::SCALE = 0.8f;
+
 Bubble::Bubble(MainScene* scene, Node* board, const int x, const int y, bool remobable)
 : _scene(scene)
 , _x(x)
@@ -31,7 +33,7 @@ Bubble::Bubble(MainScene* scene, Node* board, const int x, const int y, bool rem
             onTouchBegan();
         }
     });
-    _image->setScale(0.2f);
+    _image->setScale(Bubble::SCALE);
     board->addChild(_frame);
     moveTo(x, y);
 }
@@ -83,7 +85,8 @@ void Bubble::moveTo(const int x, const int y)
 {
     const int margin = 10;
     const int frameMargin = 20;
-    Size size(20, 20);
+    auto s = _image->getContentSize();
+    Size size(s.width * Bubble::SCALE, s.height * Bubble::SCALE);
     auto pos = Vec2(frameMargin + size.width * x + margin * x,
                     frameMargin + size.height * y + margin * y);
     _frame->setPosition(pos);

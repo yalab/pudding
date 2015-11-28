@@ -19,6 +19,7 @@ class MainScene;
 
 class Bubble{
 public:
+    static const float SCALE;
     enum TYPE {WHITE, RED, BLUE, YELLOW, BOMB, LAST};
     Bubble(MainScene* scene, Node* board, const int x, const int y, bool removable);
     virtual ~Bubble()

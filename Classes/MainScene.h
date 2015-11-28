@@ -17,7 +17,7 @@ public:
     : _currentType(Bubble::TYPE::LAST)
     {
         for(int i = 0; i < Bubble::TYPE::LAST; i++){
-            _counts[i] = 0;
+//            _counts[i] = 0;
         }
     }
     void touchBubble(Bubble* bubble);
