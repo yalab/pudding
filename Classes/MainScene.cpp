@@ -2,12 +2,19 @@
 #include "editor-support/cocostudio/CocoStudio.h"
 #include "CocosGUI.h"
 #include "Bubble.h"
-#include <array>
 USING_NS_CC;
 using namespace cocostudio;
 using namespace cocos2d::ui;
 
 std::array<std::shared_ptr<Bubble>, MainScene::MAX::X * MainScene::MAX::Y> MainScene::BUBBLES;
+
+std::vector<StageData> stagesData = {
+    //                rate             |    clear
+    //   no, white, red, blue, yellow, |  white, red, blue, yellow, combo
+    {     1, {  10,  10,   10,     10}, {     0,   0,    0,      0,    10}}
+};
+
+std::string comboCount = "count_4";
 
 Scene* MainScene::createScene()
 {
@@ -26,7 +33,7 @@ bool MainScene::init()
     SpriteFrameCache::getInstance()->addSpriteFramesWithFile("Image/sweets.plist");
     _csb = CSLoader::createNode("MainScene/MainScene.csb");
     this->addChild(_csb);
-    setCounter("combo_count", 0);
+    setCounter(comboCount, 0);
     auto board = _csb->getChildByName("Board");
     for(int y = 0; y < MAX::Y; y++){
         for(int x = 0; x < MAX::X; x++){
@@ -34,6 +41,18 @@ bool MainScene::init()
             auto n = y * MAX::X + x;
             BUBBLES[n] = bubble;
         }
+    }
+    setStageData(stagesData[0]);
+    for(int i = 0; i < Bubble::TYPE::LAST; i++){
+        std::stringstream s;
+        s << "count_";
+        s << i;
+        setCounter(s.str(), 0);
+        
+        std::stringstream ss;
+        ss << "max_";
+        ss << i;
+        setCounter(ss.str(), _conditions[i]);
     }
     return true;
 }
@@ -51,7 +70,7 @@ void MainScene::countBubble(Bubble* bubble)
         _currentType = bubble->getType();
         _counts[Bubble::TYPE::LAST] = 0;
     }
-    setCounter("combo_count", _counts[Bubble::TYPE::LAST]);
+    setCounter(comboCount, _counts[Bubble::TYPE::LAST]);
     setCounter(bubble->getCounterName(), _counts[bubble->getType()]);
     for(auto b: BUBBLES){
         b->nextTurn();
@@ -63,6 +82,9 @@ void MainScene::setCounter(const std::string& name, const int count)
     std::stringstream ss;
     ss << count;
     auto counter = static_cast<TextBMFont*>(_csb->getChildByName(name));
+    if(counter == nullptr){
+        return;
+    }
     counter->setString(ss.str());
     incrementEffect(counter);
 }
@@ -73,4 +95,15 @@ void MainScene::incrementEffect(Node* node)
     auto seq = Sequence::create(ScaleTo::create(0.1f, scale * 1.2),
                                 ScaleTo::create(0.1f, scale      ), nullptr);
     node->runAction(seq);
+}
+
+void MainScene::setStageData(StageData& stageData)
+{
+    for(int i = 0; i < stageData.rates.size(); i++){
+        _rates[i] = stageData.rates[i];
+    }
+
+    for(int i = 0; i < stageData.conditions.size(); i++){
+        _conditions[i] = stageData.conditions[i];
+    }
 }
