@@ -57,18 +57,38 @@ void MainScene::countBubble(Bubble* bubble)
     _counts[bubble->getType()] ++;
     auto combo = _csb->getChildByName("combo_label");
     if(_currentType == bubble->getType()){
-        _counts[Bubble::TYPE::LAST] ++;
+        _counts[Bubble::TYPE::BOMB] ++;
         combo->setVisible(true);
         incrementEffect(combo);
     }else{
         combo->setVisible(false);
         _currentType = bubble->getType();
-        _counts[Bubble::TYPE::LAST] = 0;
+        _counts[Bubble::TYPE::BOMB] = 0;
     }
-    setCounter(comboCount, _counts[Bubble::TYPE::LAST]);
+    setCounter(comboCount, _counts[Bubble::TYPE::BOMB]);
     setCounter(bubble->getCounterName(), _counts[bubble->getType()]);
     for(auto b: BUBBLES){
         b->nextTurn();
+    }
+    nextTurn();
+}
+
+void MainScene::nextTurn()
+{
+    _turn ++;
+    if(_turn > _turnLimit){
+        gameOver();
+    }
+    log("### turn %i", _turn);
+    auto clearConditions = 0;
+    for(int i = 0; i < _conditions.size(); i++){
+        if(_counts.at(i) >= _conditions[i]){
+            clearConditions++;
+        }
+        log("%i count: %i, conditino: %i", i, _counts.at(i), _conditions[i]);
+    }
+    if(clearConditions >= _conditions.size()){
+        stageClear();
     }
 }
 
@@ -101,4 +121,15 @@ void MainScene::setStageData(const StageData& stageData)
     for(int i = 0; i < stageData.conditions.size(); i++){
         _conditions[i] = stageData.conditions[i];
     }
+    _turnLimit = stageData.turnLimit;
+}
+
+void MainScene::stageClear()
+{
+    log("StageClear");
+}
+
+void MainScene::gameOver()
+{
+    log("GameOver");
 }
