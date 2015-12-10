@@ -12,6 +12,7 @@
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		242CC47C1C09AA4900C5E8B2 /* Fonts in Resources */ = {isa = PBXBuildFile; fileRef = 242CC47B1C09AA4900C5E8B2 /* Fonts */; };
+		2454E5171C19635900D95F4D /* StageData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2454E5161C19635900D95F4D /* StageData.cpp */; };
 		249DE9D61BD3911400DEBAE5 /* Default in Resources */ = {isa = PBXBuildFile; fileRef = 249DE9D21BD3911400DEBAE5 /* Default */; };
 		249DE9D81BD3911400DEBAE5 /* Image in Resources */ = {isa = PBXBuildFile; fileRef = 249DE9D41BD3911400DEBAE5 /* Image */; };
 		249DE9DC1BD3A96B00DEBAE5 /* Bubble.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 249DE9DA1BD3A96B00DEBAE5 /* Bubble.cpp */; };
@@ -104,6 +105,8 @@
 		1D6058910D05DD3D006BFB54 /* pudding-mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "pudding-mobile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		242CC47B1C09AA4900C5E8B2 /* Fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Fonts; path = ../Resources/Fonts; sourceTree = "<group>"; };
+		2454E5151C19631000D95F4D /* StageData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StageData.h; sourceTree = "<group>"; };
+		2454E5161C19635900D95F4D /* StageData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = StageData.cpp; path = schema/StageData.cpp; sourceTree = "<group>"; };
 		249DE9D21BD3911400DEBAE5 /* Default */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Default; path = ../Resources/Default; sourceTree = "<group>"; };
 		249DE9D41BD3911400DEBAE5 /* Image */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Image; path = ../Resources/Image; sourceTree = "<group>"; };
 		249DE9DA1BD3A96B00DEBAE5 /* Bubble.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Bubble.cpp; sourceTree = "<group>"; };
@@ -237,6 +240,15 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		2454E5141C1962FE00D95F4D /* schema */ = {
+			isa = PBXGroup;
+			children = (
+				2454E5151C19631000D95F4D /* StageData.h */,
+				2454E5161C19635900D95F4D /* StageData.cpp */,
+			);
+			name = schema;
+			sourceTree = "<group>";
+		};
 		249DE9C51BD38FD900DEBAE5 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -291,6 +303,7 @@
 		46880B8319C43A87006E1F66 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				2454E5141C1962FE00D95F4D /* schema */,
 				46880B8419C43A87006E1F66 /* AppDelegate.cpp */,
 				46880B8519C43A87006E1F66 /* AppDelegate.h */,
 				46880B8619C43A87006E1F66 /* MainScene.cpp */,
@@ -484,6 +497,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2454E5171C19635900D95F4D /* StageData.cpp in Sources */,
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				46880B8A19C43A87006E1F66 /* MainScene.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,

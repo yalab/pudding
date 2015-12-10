@@ -2,17 +2,14 @@
 #include "editor-support/cocostudio/CocoStudio.h"
 #include "CocosGUI.h"
 #include "Bubble.h"
+#include "StageData.h"
+
 USING_NS_CC;
 using namespace cocostudio;
 using namespace cocos2d::ui;
 
 std::array<std::shared_ptr<Bubble>, MainScene::MAX::X * MainScene::MAX::Y> MainScene::BUBBLES;
 
-std::vector<StageData> stagesData = {
-    //                rate             |    clear
-    //   no, white, red, blue, yellow, |  white, red, blue, yellow, combo
-    {     1, {  10,  10,   10,     10}, {     0,   0,    0,      0,    10}}
-};
 
 std::string comboCount = "count_4";
 
@@ -97,7 +94,7 @@ void MainScene::incrementEffect(Node* node)
     node->runAction(seq);
 }
 
-void MainScene::setStageData(StageData& stageData)
+void MainScene::setStageData(const StageData& stageData)
 {
     for(int i = 0; i < stageData.rates.size(); i++){
         _rates[i] = stageData.rates[i];

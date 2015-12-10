@@ -6,12 +6,7 @@
 #include <array>
 
 class Bubble;
-
-typedef struct StageData{
-    const int no;
-    std::array<int, Bubble::TYPE::LAST> rates;
-    std::array<int, Bubble::TYPE::LAST> conditions;
-} StageData;
+class StageData;
 
 class MainScene : public cocos2d::Layer
 {
@@ -35,7 +30,7 @@ public:
     std::unordered_map<int, int> _counts;
     Node* _csb;
     void incrementEffect(Node* node);
-    void setStageData(StageData& stageData);
+    void setStageData(const StageData& stageData);
 private:
     void setCounter(const std::string& name, const int count);
     int _no;
