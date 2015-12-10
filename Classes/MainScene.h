@@ -11,8 +11,7 @@ class StageData;
 class MainScene : public cocos2d::Layer
 {
 public:
-    enum MAX {X = 5, Y = 5};
-    static std::array<std::shared_ptr<Bubble>, MAX::X * MAX::Y> BUBBLES;
+    static std::vector<const std::shared_ptr<Bubble>> BUBBLES;
     static cocos2d::Scene* createScene();
     
     MainScene()

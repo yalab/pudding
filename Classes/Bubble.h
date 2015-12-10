@@ -21,26 +21,26 @@ class Bubble{
 public:
     static const float SCALE;
     enum TYPE {WHITE, RED, BLUE, YELLOW, BOMB, LAST};
-    Bubble(MainScene* scene, Node* board, const int x, const int y, bool removable);
+    Bubble(MainScene* scene, Node* board, const int minSpeed, const int maxSpeed, bool removable);
     virtual ~Bubble()
     {
         _image = nullptr;
         _scene = nullptr;
         _frame = nullptr;
     };
-    static std::shared_ptr<Bubble> create(MainScene* scene, Node* board, const int x, const int y, bool remobable);
-    inline TYPE getType(){ return _type; }
-    void moveTo(const int x, const int y);
+    static std::shared_ptr<Bubble> create(MainScene* scene, Node* board, const int minSpeed, const int maxSpeed, bool remobable);
+    inline const TYPE getType(){ return _type; }
     void setRandomType();
     void hide();
     void nextTurn();
     const std::string getCounterName();
 private:
+    const int _maxSpeed;
+    const int _minSpeed;
+    void move();
     void render();
     const std::string path(TYPE type);
     void onTouchBegan();
-    int _x;
-    int _y;
     TYPE _type;
     bool _remobable;
     MainScene* _scene;

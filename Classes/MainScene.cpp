@@ -8,8 +8,7 @@ USING_NS_CC;
 using namespace cocostudio;
 using namespace cocos2d::ui;
 
-std::array<std::shared_ptr<Bubble>, MainScene::MAX::X * MainScene::MAX::Y> MainScene::BUBBLES;
-
+std::vector<const std::shared_ptr<Bubble>> MainScene::BUBBLES;
 
 std::string comboCount = "count_4";
 
@@ -30,16 +29,15 @@ bool MainScene::init()
     SpriteFrameCache::getInstance()->addSpriteFramesWithFile("Image/sweets.plist");
     _csb = CSLoader::createNode("MainScene/MainScene.csb");
     this->addChild(_csb);
+    const StageData stageData = stagesData[0];
     setCounter(comboCount, 0);
     auto board = _csb->getChildByName("Board");
-    for(int y = 0; y < MAX::Y; y++){
-        for(int x = 0; x < MAX::X; x++){
-            auto bubble = Bubble::create(this, board, x, y, true);
-            auto n = y * MAX::X + x;
-            BUBBLES[n] = bubble;
-        }
+    setStageData(stageData);
+    for(int i = 0; i < stageData.bubbleCount; i++){
+        auto bubble = Bubble::create(this, board, stageData.minSpeed, stageData.maxSpeed, true);
+        BUBBLES.push_back(bubble);
     }
-    setStageData(stagesData[0]);
+
     for(int i = 0; i < Bubble::TYPE::LAST; i++){
         std::stringstream s;
         s << "count_";

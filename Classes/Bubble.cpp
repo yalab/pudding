@@ -15,13 +15,13 @@ using namespace cocos2d::ui;
 
 const float Bubble::SCALE = 0.8f;
 
-Bubble::Bubble(MainScene* scene, Node* board, const int x, const int y, bool remobable)
+Bubble::Bubble(MainScene* scene, Node* board, int minSpeed, int maxSpeed, bool remobable)
 : _scene(scene)
-, _x(x)
-, _y(y)
 , _remobable(remobable)
 , _image(nullptr)
 , _frame(nullptr)
+, _minSpeed(minSpeed)
+, _maxSpeed(maxSpeed)
 {
     _frame = Node::create();
     auto pathName = path(Bubble::TYPE::BLUE);
@@ -35,13 +35,13 @@ Bubble::Bubble(MainScene* scene, Node* board, const int x, const int y, bool rem
     });
     _image->setScale(Bubble::SCALE);
     board->addChild(_frame);
-    moveTo(x, y);
+    move();
 }
 
-std::shared_ptr<Bubble> Bubble::create(MainScene* scene, Node* board, const int x, const int y, bool remobable)
+std::shared_ptr<Bubble> Bubble::create(MainScene* scene, Node* board, const int minSpeed, const int maxSpeed, bool remobable)
 {
     auto boardSize = board->getContentSize();
-    auto bubble = std::make_shared<Bubble>(scene, board, x, y, remobable);
+    auto bubble = std::make_shared<Bubble>(scene, board, minSpeed, maxSpeed, remobable);
     return bubble;
 }
 
@@ -50,8 +50,6 @@ void Bubble::onTouchBegan()
     hide();
     _scene->countBubble(this);
     setRandomType();
-
-    log("%i, %i, %i", _x, _y, _type);
 }
 
 const std::string Bubble::path(TYPE type)
@@ -84,17 +82,6 @@ void Bubble::setRandomType()
     _image->loadTexturePressed(pathName, Button::TextureResType::PLIST);
 }
 
-void Bubble::moveTo(const int x, const int y)
-{
-    const int margin = 10;
-    const int frameMargin = 20;
-    auto s = _image->getContentSize();
-    Size size(s.width * Bubble::SCALE, s.height * Bubble::SCALE);
-    auto pos = Vec2(frameMargin + size.width * x + margin * x,
-                    frameMargin + size.height * y + margin * y);
-    _frame->setPosition(pos);
-}
-
 void Bubble::hide()
 {
     _image->setVisible(false);
@@ -113,4 +100,15 @@ void Bubble::nextTurn()
 const std::string Bubble::getCounterName()
 {
     return "count_" + std::to_string(static_cast<int>(getType()));
+}
+
+void Bubble::move()
+{
+    const Size size = _frame->getParent()->getContentSize();
+    const Vec2 p = Vec2(random(0, static_cast<int>(size.width)), random(0, static_cast<int>(size.height)));
+    const float d = static_cast<float>(random(_minSpeed, _maxSpeed)) / 10;
+    auto seq = Sequence::create(MoveTo::create(d, p), CallFunc::create([&](){
+        move();
+    }), nullptr);
+    _image->runAction(seq);
 }
