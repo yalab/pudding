@@ -234,6 +234,16 @@
             <PreSize X="0.0703" Y="0.0479" />
             <LabelBMFontFile_CNB Type="Normal" Path="Fonts/BasicLabel.fnt" Plist="" />
           </AbstractNodeData>
+          <AbstractNodeData Name="count_turn" ActionTag="-2013181577" Tag="32" IconVisible="False" LeftMargin="477.6364" RightMargin="22.3636" TopMargin="898.4090" BottomMargin="15.5910" LabelText="100/100" ctype="TextBMFontObjectData">
+            <Size X="140.0000" Y="46.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="547.6364" Y="38.5910" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="0.8557" Y="0.0402" />
+            <PreSize X="0.2188" Y="0.0479" />
+            <LabelBMFontFile_CNB Type="Normal" Path="Fonts/BasicLabel.fnt" Plist="" />
+          </AbstractNodeData>
         </Children>
       </ObjectData>
     </Content>

@@ -16,7 +16,7 @@ public:
     
     MainScene()
     : _currentType(Bubble::TYPE::LAST)
-    , _turn(0)
+    , _turn(-1)
     , _turnLimit(0)
     {
         for(int i = 0; i < Bubble::TYPE::LAST; i++){

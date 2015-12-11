@@ -49,6 +49,7 @@ bool MainScene::init()
         ss << i;
         setCounter(ss.str(), _conditions[i]);
     }
+    nextTurn();
     setonEnterTransitionDidFinishCallback([&](){
         showStartMessage();
     });
@@ -102,6 +103,13 @@ void MainScene::countBubble(Bubble* bubble)
 void MainScene::nextTurn()
 {
     _turn ++;
+
+    std::stringstream ss;
+    ss << std::to_string(_turn);
+    ss << "/";
+    ss << std::to_string(_turnLimit);
+    auto turnLabel = static_cast<TextBMFont*>(_csb->getChildByName("count_turn"));
+    turnLabel->setString(ss.str());
     if(_turn > _turnLimit){
         gameOver();
     }
