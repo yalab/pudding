@@ -4,17 +4,19 @@
     <Group ctype="ResourceGroup">
       <RootFolder Name=".">
         <Folder Name="Image">
-          <Image Name="bg_story.png" />
           <Image Name="icon_pumpkin.png" />
           <Image Name="icon_question.png" />
           <Image Name="icon_skull.png" />
           <Image Name="icon_soul.png" />
           <Image Name="icon_star_off.png" />
           <Image Name="icon_time.png" />
+          <Image Name="bg_message.png" />
+          <Image Name="bg_story.png" />
         </Folder>
         <Folder Name="MainScene">
           <Project Name="MainScene.csd" Type="Scene" />
           <PlistInfo Name="MainScene.csi" Type="Plist" />
+          <Project Name="Message.csd" Type="Node" />
         </Folder>
         <Folder Name="Fonts">
           <Fnt Name="BasicLabel.fnt" />

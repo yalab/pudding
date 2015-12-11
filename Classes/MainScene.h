@@ -34,8 +34,8 @@ public:
     void nextTurn();
     void gameOver();
     void stageClear();
-
 private:
+    void showStartMessage();
     int _turn;
     void setCounter(const std::string& name, const int count);
     int _no;

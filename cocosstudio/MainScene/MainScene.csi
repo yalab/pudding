@@ -2,7 +2,6 @@
   <PropertyGroup Name="MainScene" Type="Plist" ID="8c41ef26-5de9-4389-b030-bf0020930f25" Version="2.3.3.0" />
   <Content ExportType="Png" SortAlgorithm="MaxRects" PicturePadding="0" AllowRotation="True" AllowAnySize="False" AllowTrim="False" ctype="PlistInfoData">
     <ImageFiles>
-      <FilePathData Path="Image/bg_story.png" />
       <FilePathData Path="Image/icon_pumpkin.png" />
       <FilePathData Path="Image/icon_soul.png" />
       <FilePathData Path="Image/icon_time.png" />

@@ -49,7 +49,33 @@ bool MainScene::init()
         ss << i;
         setCounter(ss.str(), _conditions[i]);
     }
+    setonEnterTransitionDidFinishCallback([&](){
+        showStartMessage();
+    });
     return true;
+}
+
+void MainScene::showStartMessage()
+{
+    Director::getInstance()->getEventDispatcher()->setEnabled(false);
+    auto node = CSLoader::createNode("MainScene/Message.csb");
+    auto n = node->getChildByName("bg_message")->getChildByName("message_label");
+    auto label = static_cast<TextBMFont*>(n);
+    std::stringstream ss;
+    ss << std::to_string(_turnLimit) + "ターンいないに";
+    ss << std::to_string(_conditions[Bubble::TYPE::BOMB]) + "コンボしよう";
+    label->setString(ss.str());
+    node->setPosition(Vec2(480, 500));
+    _csb->addChild(node);
+    
+    auto seq = Sequence::create(MoveTo::create(0.5f, Vec2(320, 500)),
+                                DelayTime::create(1.5f),
+                                CallFuncN::create([](Ref* ref){
+                                    Director::getInstance()->getEventDispatcher()->setEnabled(true);
+                                    static_cast<Node*>(ref)->removeFromParent();
+                                }),
+                                nullptr);
+    node->runAction(seq);
 }
 
 void MainScene::countBubble(Bubble* bubble)
@@ -79,13 +105,11 @@ void MainScene::nextTurn()
     if(_turn > _turnLimit){
         gameOver();
     }
-    log("### turn %i", _turn);
     auto clearConditions = 0;
     for(int i = 0; i < _conditions.size(); i++){
         if(_counts.at(i) >= _conditions[i]){
             clearConditions++;
         }
-        log("%i count: %i, conditino: %i", i, _counts.at(i), _conditions[i]);
     }
     if(clearConditions >= _conditions.size()){
         stageClear();
