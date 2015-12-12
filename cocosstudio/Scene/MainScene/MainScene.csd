@@ -17,6 +17,16 @@
             <FileData Type="Normal" Path="Image/bg_story.png" Plist="" />
             <BlendFunc Src="770" Dst="771" />
           </AbstractNodeData>
+          <AbstractNodeData Name="menu_button" ActionTag="-1373099952" Tag="33" IconVisible="False" LeftMargin="-9.5500" RightMargin="529.5500" TopMargin="870.0000" BottomMargin="-30.0000" Scale9Width="120" Scale9Height="120" ctype="ImageViewObjectData">
+            <Size X="120.0000" Y="120.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="50.4500" Y="30.0000" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="0.0788" Y="0.0313" />
+            <PreSize X="0.1875" Y="0.1250" />
+            <FileData Type="Normal" Path="Image/button_info_normal_home.png" Plist="" />
+          </AbstractNodeData>
           <AbstractNodeData Name="Board" ActionTag="1429186130" Tag="10" IconVisible="False" LeftMargin="22.2786" RightMargin="17.7214" TopMargin="189.3463" BottomMargin="70.6537" TouchEnable="True" BackColorAlpha="102" ComboBoxIndex="1" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
             <Size X="600.0000" Y="700.0000" />
             <AnchorPoint />
@@ -38,7 +48,7 @@
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.3533" Y="0.9339" />
             <PreSize X="0.1250" Y="0.0833" />
-            <FileData Type="MarkedSubImage" Path="Image/icon_skull.png" Plist="MainScene/MainScene.plist" />
+            <FileData Type="MarkedSubImage" Path="Image/icon_skull.png" Plist="Scene/MainScene/MainScene.plist" />
             <BlendFunc Src="770" Dst="771" />
           </AbstractNodeData>
           <AbstractNodeData Name="icon_1" ActionTag="1272457335" Tag="5" IconVisible="False" LeftMargin="425.4861" RightMargin="134.5139" TopMargin="20.9566" BottomMargin="859.0434" ctype="SpriteObjectData">
@@ -49,7 +59,7 @@
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.7273" Y="0.9365" />
             <PreSize X="0.1250" Y="0.0833" />
-            <FileData Type="MarkedSubImage" Path="Image/icon_pumpkin.png" Plist="MainScene/MainScene.plist" />
+            <FileData Type="MarkedSubImage" Path="Image/icon_pumpkin.png" Plist="Scene/MainScene/MainScene.plist" />
             <BlendFunc Src="770" Dst="771" />
           </AbstractNodeData>
           <AbstractNodeData Name="icon_2" ActionTag="624552279" Tag="10" IconVisible="False" LeftMargin="188.5904" RightMargin="371.4096" TopMargin="113.4655" BottomMargin="766.5345" ctype="SpriteObjectData">
@@ -60,7 +70,7 @@
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.3187" Y="0.8385" />
             <PreSize X="0.1250" Y="0.0833" />
-            <FileData Type="MarkedSubImage" Path="Image/icon_soul.png" Plist="MainScene/MainScene.plist" />
+            <FileData Type="MarkedSubImage" Path="Image/icon_soul.png" Plist="Scene/MainScene/MainScene.plist" />
             <BlendFunc Src="770" Dst="771" />
           </AbstractNodeData>
           <AbstractNodeData Name="icon_3" ActionTag="1667732652" Tag="12" IconVisible="False" LeftMargin="423.1581" RightMargin="136.8419" TopMargin="101.3535" BottomMargin="778.6465" ctype="SpriteObjectData">
@@ -71,7 +81,7 @@
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.7237" Y="0.8528" />
             <PreSize X="0.1250" Y="0.0833" />
-            <FileData Type="MarkedSubImage" Path="Image/icon_star_off.png" Plist="MainScene/MainScene.plist" />
+            <FileData Type="MarkedSubImage" Path="Image/icon_star_off.png" Plist="Scene/MainScene/MainScene.plist" />
             <BlendFunc Src="770" Dst="771" />
           </AbstractNodeData>
           <AbstractNodeData Name="count_4" ActionTag="-661567336" Tag="7" IconVisible="False" LeftMargin="30.9599" RightMargin="564.0401" TopMargin="94.5208" BottomMargin="819.4792" LabelText="00" ctype="TextBMFontObjectData">

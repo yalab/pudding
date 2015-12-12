@@ -3,6 +3,7 @@
 #include "CocosGUI.h"
 #include "Bubble.h"
 #include "StageData.h"
+#include "MapScene.h"
 
 USING_NS_CC;
 using namespace cocostudio;
@@ -12,10 +13,11 @@ std::vector<const std::shared_ptr<Bubble>> MainScene::BUBBLES;
 
 std::string comboCount = "count_4";
 
-Scene* MainScene::createScene()
+Scene* MainScene::createScene(const int stageNo)
 {
     auto scene = Scene::create();
     auto layer = MainScene::create();
+    layer->setStageNo(stageNo);
     scene->addChild(layer);
     return scene;
 }
@@ -26,10 +28,14 @@ bool MainScene::init()
     {
         return false;
     }
-    SpriteFrameCache::getInstance()->addSpriteFramesWithFile("Image/sweets.plist");
-    _csb = CSLoader::createNode("MainScene/MainScene.csb");
+    _csb = CSLoader::createNode("Scene/MainScene/MainScene.csb");
     this->addChild(_csb);
-    const StageData stageData = stagesData[0];
+    return true;
+}
+
+void MainScene::onEnter()
+{
+    const StageData stageData = stagesData[_stageNo - 1];
     setCounter(comboCount, 0);
     auto board = _csb->getChildByName("Board");
     setStageData(stageData);
@@ -37,7 +43,6 @@ bool MainScene::init()
         auto bubble = Bubble::create(this, board, stageData.minSpeed, stageData.maxSpeed, true);
         BUBBLES.push_back(bubble);
     }
-
     for(int i = 0; i < Bubble::TYPE::LAST; i++){
         std::stringstream s;
         s << "count_";
@@ -53,13 +58,23 @@ bool MainScene::init()
     setonEnterTransitionDidFinishCallback([&](){
         showStartMessage();
     });
-    return true;
+    auto button = static_cast<Widget*>(_csb->getChildByName("menu_button"));
+    button->setTouchEnabled(true);
+    button->addTouchEventListener([](Ref* ref, Widget::TouchEventType event){
+        if(event != Widget::TouchEventType::ENDED){
+            return;
+        }
+        auto scene = MapScene::createScene();
+        auto t = TransitionPageTurn::create(0.5, scene, true);
+        Director::getInstance()->replaceScene(t);
+    });
+    Layer::onEnter();
 }
 
 void MainScene::showStartMessage()
 {
     Director::getInstance()->getEventDispatcher()->setEnabled(false);
-    auto node = CSLoader::createNode("MainScene/Message.csb");
+    auto node = CSLoader::createNode("Scene/MainScene/Message.csb");
     auto n = node->getChildByName("bg_message")->getChildByName("message_label");
     auto label = static_cast<TextBMFont*>(n);
     std::stringstream ss;

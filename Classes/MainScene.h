@@ -12,7 +12,7 @@ class MainScene : public cocos2d::Layer
 {
 public:
     static std::vector<const std::shared_ptr<Bubble>> BUBBLES;
-    static cocos2d::Scene* createScene();
+    static cocos2d::Scene* createScene(const int stageNo);
     
     MainScene()
     : _currentType(Bubble::TYPE::LAST)
@@ -23,22 +23,27 @@ public:
             _counts[i] = 0;
         }
     }
+    ~MainScene(){
+        BUBBLES.clear();
+    }
     void countBubble(Bubble* bubble);
     inline void setCurrentType(Bubble::TYPE type){ _currentType = type; }
+    inline void setStageNo(const int stageNo){ _stageNo = stageNo; }
     virtual bool init();
+    void onEnter();
     CREATE_FUNC(MainScene);
-    Bubble::TYPE _currentType;
-    Node* _csb;
     void incrementEffect(Node* node);
     void setStageData(const StageData& stageData);
     void nextTurn();
     void gameOver();
     void stageClear();
 private:
+    int _stageNo;
+    Bubble::TYPE _currentType;
+    Node* _csb;
     void showStartMessage();
     int _turn;
     void setCounter(const std::string& name, const int count);
-    int _no;
     std::array<int, Bubble::TYPE::LAST> _counts;
     std::array<int, Bubble::TYPE::LAST> _rates;
     std::array<int, Bubble::TYPE::LAST> _conditions;

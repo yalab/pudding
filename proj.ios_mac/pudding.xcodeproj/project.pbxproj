@@ -11,12 +11,12 @@
 		1AC6FB30180E99EB004C840B /* libcocos2d iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC6FB07180E9839004C840B /* libcocos2d iOS.a */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
+		240955121C1C3CDB00A95ABC /* Scene in Resources */ = {isa = PBXBuildFile; fileRef = 240955111C1C3CDB00A95ABC /* Scene */; };
+		2423608E1C1AC32200BE2806 /* MapScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2423608C1C1AC32200BE2806 /* MapScene.cpp */; };
 		242CC47C1C09AA4900C5E8B2 /* Fonts in Resources */ = {isa = PBXBuildFile; fileRef = 242CC47B1C09AA4900C5E8B2 /* Fonts */; };
 		2454E5171C19635900D95F4D /* StageData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2454E5161C19635900D95F4D /* StageData.cpp */; };
-		249DE9D61BD3911400DEBAE5 /* Default in Resources */ = {isa = PBXBuildFile; fileRef = 249DE9D21BD3911400DEBAE5 /* Default */; };
 		249DE9D81BD3911400DEBAE5 /* Image in Resources */ = {isa = PBXBuildFile; fileRef = 249DE9D41BD3911400DEBAE5 /* Image */; };
 		249DE9DC1BD3A96B00DEBAE5 /* Bubble.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 249DE9DA1BD3A96B00DEBAE5 /* Bubble.cpp */; };
-		24A82D5B1BE4C8DD00F2FE60 /* MainScene in Resources */ = {isa = PBXBuildFile; fileRef = 24A82D5A1BE4C8DD00F2FE60 /* MainScene */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
 		46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46880B8419C43A87006E1F66 /* AppDelegate.cpp */; };
 		46880B8919C43A87006E1F66 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46880B8419C43A87006E1F66 /* AppDelegate.cpp */; };
@@ -104,14 +104,15 @@
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D6058910D05DD3D006BFB54 /* pudding-mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "pudding-mobile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		240955111C1C3CDB00A95ABC /* Scene */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Scene; path = ../Resources/Scene; sourceTree = "<group>"; };
+		2423608C1C1AC32200BE2806 /* MapScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MapScene.cpp; sourceTree = "<group>"; };
+		2423608F1C1AC34A00BE2806 /* MapScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapScene.h; sourceTree = "<group>"; };
 		242CC47B1C09AA4900C5E8B2 /* Fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Fonts; path = ../Resources/Fonts; sourceTree = "<group>"; };
 		2454E5151C19631000D95F4D /* StageData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StageData.h; sourceTree = "<group>"; };
 		2454E5161C19635900D95F4D /* StageData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = StageData.cpp; path = schema/StageData.cpp; sourceTree = "<group>"; };
-		249DE9D21BD3911400DEBAE5 /* Default */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Default; path = ../Resources/Default; sourceTree = "<group>"; };
 		249DE9D41BD3911400DEBAE5 /* Image */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Image; path = ../Resources/Image; sourceTree = "<group>"; };
 		249DE9DA1BD3A96B00DEBAE5 /* Bubble.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Bubble.cpp; sourceTree = "<group>"; };
 		249DE9DB1BD3A96B00DEBAE5 /* Bubble.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bubble.h; sourceTree = "<group>"; };
-		24A82D5A1BE4C8DD00F2FE60 /* MainScene */ = {isa = PBXFileReference; lastKnownFileType = folder; name = MainScene; path = ../Resources/MainScene; sourceTree = "<group>"; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		46880B8419C43A87006E1F66 /* AppDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AppDelegate.cpp; sourceTree = "<group>"; };
 		46880B8519C43A87006E1F66 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -252,9 +253,8 @@
 		249DE9C51BD38FD900DEBAE5 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				240955111C1C3CDB00A95ABC /* Scene */,
 				242CC47B1C09AA4900C5E8B2 /* Fonts */,
-				24A82D5A1BE4C8DD00F2FE60 /* MainScene */,
-				249DE9D21BD3911400DEBAE5 /* Default */,
 				249DE9D41BD3911400DEBAE5 /* Image */,
 			);
 			name = Resources;
@@ -310,6 +310,8 @@
 				46880B8719C43A87006E1F66 /* MainScene.h */,
 				249DE9DA1BD3A96B00DEBAE5 /* Bubble.cpp */,
 				249DE9DB1BD3A96B00DEBAE5 /* Bubble.h */,
+				2423608C1C1AC32200BE2806 /* MapScene.cpp */,
+				2423608F1C1AC34A00BE2806 /* MapScene.h */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -466,14 +468,13 @@
 				5087E77D17EB970100C73F5D /* Default-568h@2x.png in Resources */,
 				5087E78517EB970100C73F5D /* Icon-72.png in Resources */,
 				521A8E6519F0C34300D177D7 /* Default-736h@3x.png in Resources */,
-				249DE9D61BD3911400DEBAE5 /* Default in Resources */,
 				50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */,
+				240955121C1C3CDB00A95ABC /* Scene in Resources */,
 				242CC47C1C09AA4900C5E8B2 /* Fonts in Resources */,
 				5087E78017EB970100C73F5D /* Icon-114.png in Resources */,
 				50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */,
 				50EF629617ECD46A001EB2F8 /* Icon-40.png in Resources */,
 				5087E78217EB970100C73F5D /* Icon-144.png in Resources */,
-				24A82D5B1BE4C8DD00F2FE60 /* MainScene in Resources */,
 				50EF629817ECD46A001EB2F8 /* Icon-80.png in Resources */,
 				5087E78417EB970100C73F5D /* Icon-57.png in Resources */,
 				5087E77E17EB970100C73F5D /* Default.png in Resources */,
@@ -498,6 +499,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2454E5171C19635900D95F4D /* StageData.cpp in Sources */,
+				2423608E1C1AC32200BE2806 /* MapScene.cpp in Sources */,
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				46880B8A19C43A87006E1F66 /* MainScene.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,

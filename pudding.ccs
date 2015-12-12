@@ -12,14 +12,21 @@
           <Image Name="icon_time.png" />
           <Image Name="bg_message.png" />
           <Image Name="bg_story.png" />
-        </Folder>
-        <Folder Name="MainScene">
-          <Project Name="MainScene.csd" Type="Scene" />
-          <PlistInfo Name="MainScene.csi" Type="Plist" />
-          <Project Name="Message.csd" Type="Node" />
+          <Image Name="bg_beach.png" />
+          <Image Name="button_info_normal_home.png" />
         </Folder>
         <Folder Name="Fonts">
           <Fnt Name="BasicLabel.fnt" />
+        </Folder>
+        <Folder Name="Scene">
+          <Folder Name="MainScene">
+            <Project Name="MainScene.csd" Type="Scene" />
+            <PlistInfo Name="MainScene.csi" Type="Plist" />
+            <Project Name="Message.csd" Type="Node" />
+          </Folder>
+          <Folder Name="MapScene">
+            <Project Name="MapScene.csd" Type="Scene" />
+          </Folder>
         </Folder>
       </RootFolder>
     </Group>
