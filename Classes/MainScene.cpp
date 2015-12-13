@@ -4,6 +4,7 @@
 #include "Bubble.h"
 #include "StageData.h"
 #include "MapScene.h"
+#include "ResultScene.h"
 
 USING_NS_CC;
 using namespace cocostudio;
@@ -78,24 +79,20 @@ void MainScene::onExit()
 void MainScene::showStartMessage()
 {
     Director::getInstance()->getEventDispatcher()->setEnabled(false);
-    auto node = CSLoader::createNode("Scene/MainScene/Message.csb");
-    auto n = node->getChildByName("bg_message")->getChildByName("message_label");
-    auto label = static_cast<TextBMFont*>(n);
     std::stringstream ss;
     ss << std::to_string(_turnLimit) + "ターンいないに";
     ss << std::to_string(_conditions[Bubble::TYPE::BOMB]) + "コンボしよう";
-    label->setString(ss.str());
-    node->setPosition(Vec2(480, 500));
-    _csb->addChild(node);
-    
-    auto seq = Sequence::create(MoveTo::create(0.5f, Vec2(320, 500)),
+    auto seq = Sequence::create(CallFuncN::create([](Ref* ref){
+                                    static_cast<Node*>(ref)->setPosition(Vec2(480, 500));
+                                }),
+                                MoveTo::create(0.5f, Vec2(320, 500)),
                                 DelayTime::create(1.5f),
                                 CallFuncN::create([](Ref* ref){
                                     Director::getInstance()->getEventDispatcher()->setEnabled(true);
                                     static_cast<Node*>(ref)->removeFromParent();
                                 }),
                                 nullptr);
-    node->runAction(seq);
+    showMessage(ss.str(), seq);
 }
 
 void MainScene::countBubble(Bubble* bubble)
@@ -177,10 +174,34 @@ void MainScene::setStageData(const StageData& stageData)
 
 void MainScene::stageClear()
 {
-    log("StageClear");
+    Director::getInstance()->getEventDispatcher()->setEnabled(false);
+    auto seq = Sequence::create(CallFuncN::create([](Ref* ref){
+                                    static_cast<Node*>(ref)->setPosition(Vec2(320, 600));
+                                }),
+                                DelayTime::create(1.5f),
+                                FadeOut::create(0.5f),
+                                CallFuncN::create([](Ref* ref){
+                                    auto scene = ResultScene::createScene();
+                                    TransitionFadeUp::create(1.0f, scene);
+                                    auto d = Director::getInstance();
+                                    d->replaceScene(scene);
+                                    d->getEventDispatcher()->setEnabled(true);
+                                }),
+                                nullptr);
+    showMessage("くりあ!!", seq);
 }
 
 void MainScene::gameOver()
 {
     log("GameOver");
+}
+
+void MainScene::showMessage(const std::string message, FiniteTimeAction* actions)
+{
+    auto node = CSLoader::createNode("Scene/MainScene/Message.csb");
+    auto n = node->getChildByName("bg_message")->getChildByName("message_label");
+    auto label = static_cast<TextBMFont*>(n);
+    label->setString(message);
+    _csb->addChild(node);
+    node->runAction(actions);
 }

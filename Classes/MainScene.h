@@ -36,6 +36,7 @@ public:
     void gameOver();
     void stageClear();
 private:
+    void showMessage(const std::string message, FiniteTimeAction* actions);
     std::vector<const std::shared_ptr<Bubble>> _bubbles;
     int _stageNo;
     Bubble::TYPE _currentType;

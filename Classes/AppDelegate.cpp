@@ -1,5 +1,6 @@
 #include "AppDelegate.h"
 #include "MapScene.h"
+#include "ResultScene.h"
 
 USING_NS_CC;
 
