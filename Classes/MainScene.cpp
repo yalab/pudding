@@ -86,7 +86,7 @@ void MainScene::showStartMessage()
                                     static_cast<Node*>(ref)->setPosition(Vec2(480, 500));
                                 }),
                                 MoveTo::create(0.5f, Vec2(320, 500)),
-                                DelayTime::create(1.5f),
+                                DelayTime::create(3.0f),
                                 CallFuncN::create([](Ref* ref){
                                     Director::getInstance()->getEventDispatcher()->setEnabled(true);
                                     static_cast<Node*>(ref)->removeFromParent();
