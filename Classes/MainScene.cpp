@@ -9,8 +9,6 @@ USING_NS_CC;
 using namespace cocostudio;
 using namespace cocos2d::ui;
 
-std::vector<const std::shared_ptr<Bubble>> MainScene::BUBBLES;
-
 std::string comboCount = "count_4";
 
 Scene* MainScene::createScene(const int stageNo)
@@ -41,7 +39,7 @@ void MainScene::onEnter()
     setStageData(stageData);
     for(int i = 0; i < stageData.bubbleCount; i++){
         auto bubble = Bubble::create(this, board, stageData.minSpeed, stageData.maxSpeed, true);
-        BUBBLES.push_back(bubble);
+        _bubbles.push_back(bubble);
     }
     for(int i = 0; i < Bubble::TYPE::LAST; i++){
         std::stringstream s;
@@ -73,7 +71,7 @@ void MainScene::onEnter()
 
 void MainScene::onExit()
 {
-    BUBBLES.clear();
+    _bubbles.clear();
     Layer::onExit();
 }
 
@@ -115,7 +113,7 @@ void MainScene::countBubble(Bubble* bubble)
     }
     setCounter(comboCount, _counts[Bubble::TYPE::BOMB]);
     setCounter(bubble->getCounterName(), _counts[bubble->getType()]);
-    for(auto b: BUBBLES){
+    for(auto b: _bubbles){
         b->nextTurn();
     }
     nextTurn();

@@ -11,7 +11,6 @@ class StageData;
 class MainScene : public cocos2d::Layer
 {
 public:
-    static std::vector<const std::shared_ptr<Bubble>> BUBBLES;
     static cocos2d::Scene* createScene(const int stageNo);
     
     MainScene()
@@ -37,6 +36,7 @@ public:
     void gameOver();
     void stageClear();
 private:
+    std::vector<const std::shared_ptr<Bubble>> _bubbles;
     int _stageNo;
     Bubble::TYPE _currentType;
     Node* _csb;
