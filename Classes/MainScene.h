@@ -18,19 +18,18 @@ public:
     : _currentType(Bubble::TYPE::LAST)
     , _turn(-1)
     , _turnLimit(0)
+    , _csb(nullptr)
     {
         for(int i = 0; i < Bubble::TYPE::LAST; i++){
             _counts[i] = 0;
         }
-    }
-    ~MainScene(){
-        BUBBLES.clear();
     }
     void countBubble(Bubble* bubble);
     inline void setCurrentType(Bubble::TYPE type){ _currentType = type; }
     inline void setStageNo(const int stageNo){ _stageNo = stageNo; }
     virtual bool init();
     void onEnter();
+    void onExit();
     CREATE_FUNC(MainScene);
     void incrementEffect(Node* node);
     void setStageData(const StageData& stageData);

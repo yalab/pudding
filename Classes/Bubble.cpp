@@ -107,9 +107,8 @@ void Bubble::move()
     const Size size = _frame->getParent()->getContentSize();
     const Vec2 p = Vec2(random(0, static_cast<int>(size.width)), random(0, static_cast<int>(size.height)));
     const float d = static_cast<float>(random(_minSpeed, _maxSpeed));
-    auto obj = this;
-    auto seq = Sequence::create(MoveTo::create(10.0/d, p), CallFunc::create([obj](){
-        obj->move();
+    auto seq = Sequence::create(MoveTo::create(10.0/d, p), CallFunc::create([&](){
+        move();
     }), nullptr);
     _image->runAction(seq);
 }

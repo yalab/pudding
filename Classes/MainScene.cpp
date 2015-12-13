@@ -71,6 +71,12 @@ void MainScene::onEnter()
     Layer::onEnter();
 }
 
+void MainScene::onExit()
+{
+    BUBBLES.clear();
+    Layer::onExit();
+}
+
 void MainScene::showStartMessage()
 {
     Director::getInstance()->getEventDispatcher()->setEnabled(false);
