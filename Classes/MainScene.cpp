@@ -119,14 +119,13 @@ void MainScene::countBubble(Bubble* bubble)
 void MainScene::nextTurn()
 {
     _turn ++;
-
     std::stringstream ss;
     ss << std::to_string(_turn);
     ss << "/";
     ss << std::to_string(_turnLimit);
     auto turnLabel = static_cast<TextBMFont*>(_csb->getChildByName("count_turn"));
     turnLabel->setString(ss.str());
-    if(_turn > _turnLimit){
+    if(_turn >= _turnLimit){
         gameOver();
     }
     auto clearConditions = 0;
@@ -193,7 +192,21 @@ void MainScene::stageClear()
 
 void MainScene::gameOver()
 {
-    log("GameOver");
+    Director::getInstance()->getEventDispatcher()->setEnabled(false);
+    auto seq = Sequence::create(CallFuncN::create([](Ref* ref){
+        static_cast<Node*>(ref)->setPosition(Vec2(320, 600));
+    }),
+                                DelayTime::create(1.5f),
+                                FadeOut::create(0.5f),
+                                CallFuncN::create([](Ref* ref){
+        auto scene = MapScene::createScene();
+        TransitionTurnOffTiles::create(2.0f, scene);
+        auto d = Director::getInstance();
+        d->replaceScene(scene);
+        d->getEventDispatcher()->setEnabled(true);
+    }),
+                                nullptr);
+    showMessage("くりあしっぱい", seq);
 }
 
 void MainScene::showMessage(const std::string message, FiniteTimeAction* actions)
