@@ -34,7 +34,7 @@ bool MainScene::init()
 
 void MainScene::onEnter()
 {
-    const StageData stageData = stagesData[_stageNo - 1];
+    const StageData stageData = stagesData[_stageNo];
     setCounter(comboCount, 0);
     auto board = _csb->getChildByName("Board");
     setStageData(stageData);
@@ -106,37 +106,57 @@ void MainScene::countBubble(Bubble* bubble)
     }else{
         combo->setVisible(false);
         _currentType = bubble->getType();
-        _counts[Bubble::TYPE::BOMB] = 0;
+        _counts[Bubble::TYPE::BOMB] = 1;
     }
     setCounter(comboCount, _counts[Bubble::TYPE::BOMB]);
     setCounter(bubble->getCounterName(), _counts[bubble->getType()]);
-    for(auto b: _bubbles){
-        b->nextTurn();
-    }
     nextTurn();
 }
 
 void MainScene::nextTurn()
 {
     _turn ++;
+    for(auto b: _bubbles){
+        b->nextTurn();
+    }
+    if(isClear()){
+        stageClear();
+        return;
+    }
     std::stringstream ss;
     ss << std::to_string(_turn);
     ss << "/";
     ss << std::to_string(_turnLimit);
     auto turnLabel = static_cast<TextBMFont*>(_csb->getChildByName("count_turn"));
     turnLabel->setString(ss.str());
-    if(_turn >= _turnLimit){
+    if(isGameOver()){
         gameOver();
     }
+}
+
+bool MainScene::isClear()
+{
     auto clearConditions = 0;
     for(int i = 0; i < _conditions.size(); i++){
         if(_counts.at(i) >= _conditions[i]){
             clearConditions++;
         }
     }
-    if(clearConditions >= _conditions.size()){
-        stageClear();
+    return clearConditions >= _conditions.size();
+}
+
+bool MainScene::isGameOver()
+{
+    if(_turn >= _turnLimit){
+        return true;
     }
+    auto itr = std::find_if(_bubbles.begin(), _bubbles.end(), [](std::shared_ptr<Bubble> bubble){
+        return bubble->isVisible();
+    });
+    if(itr == _bubbles.end()){
+        return true;
+    }
+    return false;
 }
 
 void MainScene::setCounter(const std::string& name, const int count)
@@ -173,6 +193,7 @@ void MainScene::setStageData(const StageData& stageData)
 
 void MainScene::stageClear()
 {
+    UserDefault::getInstance()->setIntegerForKey(kplayableStageNo, _stageNo + 1);
     Director::getInstance()->getEventDispatcher()->setEnabled(false);
     auto seq = Sequence::create(CallFuncN::create([](Ref* ref){
                                     static_cast<Node*>(ref)->setPosition(Vec2(320, 600));

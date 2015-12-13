@@ -22,6 +22,7 @@ Bubble::Bubble(MainScene* scene, Node* board, int minSpeed, int maxSpeed, bool r
 , _frame(nullptr)
 , _minSpeed(minSpeed)
 , _maxSpeed(maxSpeed)
+, _invisibleTurn(0)
 {
     _frame = Node::create();
     auto pathName = path(Bubble::TYPE::BLUE);
@@ -93,6 +94,7 @@ void Bubble::nextTurn()
     if(_invisibleTurn > 0){
         _invisibleTurn --;
     }else{
+        _invisibleTurn = 0;
         _image->setVisible(true);
     }
 }
@@ -111,4 +113,9 @@ void Bubble::move()
         move();
     }), nullptr);
     _image->runAction(seq);
+}
+
+bool Bubble::isVisible()
+{
+    return _image->isVisible();
 }

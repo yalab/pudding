@@ -14,7 +14,6 @@
 #include "StageData.h"
 
 typedef struct StageData{
-    const int no;
     const int bubbleCount;
     const int minSpeed;
     const int maxSpeed;
@@ -24,5 +23,6 @@ typedef struct StageData{
 } StageData;
 
 extern std::vector<const StageData> stagesData;
+extern const char* kplayableStageNo;
 
 #endif /* StageData_h */

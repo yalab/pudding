@@ -34,6 +34,7 @@ public:
     void hide();
     void nextTurn();
     const std::string getCounterName();
+    bool isVisible();
 private:
     const int _maxSpeed;
     const int _minSpeed;

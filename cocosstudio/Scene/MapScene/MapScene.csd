@@ -11,28 +11,6 @@
             <Children>
               <AbstractNodeData Name="bg" ActionTag="-1909828366" Tag="6" IconVisible="False" LeftMargin="58.7505" RightMargin="325.2495" TopMargin="1201.3362" BottomMargin="366.6638" ctype="SpriteObjectData">
                 <Size X="640.0000" Y="480.0000" />
-                <Children>
-                  <AbstractNodeData Name="stage1" ActionTag="71533124" Tag="28" IconVisible="False" LeftMargin="60.0000" RightMargin="500.0000" TopMargin="240.0000" BottomMargin="160.0000" Scale9Width="80" Scale9Height="80" ctype="ImageViewObjectData">
-                    <Size X="80.0000" Y="80.0000" />
-                    <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                    <Position X="100.0000" Y="200.0000" />
-                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                    <CColor A="255" R="255" G="255" B="255" />
-                    <PrePosition X="0.1563" Y="0.4167" />
-                    <PreSize X="0.1250" Y="0.1667" />
-                    <FileData Type="Normal" Path="Image/icon_question.png" Plist="" />
-                  </AbstractNodeData>
-                  <AbstractNodeData Name="stage2" ActionTag="-1446948253" Tag="7" IconVisible="False" LeftMargin="410.0000" RightMargin="150.0000" TopMargin="159.3300" BottomMargin="240.6700" Scale9Width="80" Scale9Height="80" ctype="ImageViewObjectData">
-                    <Size X="80.0000" Y="80.0000" />
-                    <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                    <Position X="450.0000" Y="280.6700" />
-                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                    <CColor A="255" R="255" G="255" B="255" />
-                    <PrePosition X="0.7031" Y="0.5847" />
-                    <PreSize X="0.1250" Y="0.1667" />
-                    <FileData Type="Normal" Path="Image/icon_question.png" Plist="" />
-                  </AbstractNodeData>
-                </Children>
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="378.7505" Y="606.6638" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
@@ -41,6 +19,21 @@
                 <PreSize X="0.6250" Y="0.2344" />
                 <FileData Type="Normal" Path="Image/bg_beach.png" Plist="" />
                 <BlendFunc Src="770" Dst="771" />
+              </AbstractNodeData>
+              <AbstractNodeData Name="reset_button" ActionTag="905963745" Tag="45" IconVisible="False" RightMargin="924.0000" TopMargin="1948.0000" TouchEnable="True" FontSize="14" ButtonText="データリセット" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="70" Scale9Height="78" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+                <Size X="100.0000" Y="100.0000" />
+                <AnchorPoint />
+                <Position />
+                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <PrePosition />
+                <PreSize X="0.0977" Y="0.0488" />
+                <TextColor A="255" R="65" G="65" B="70" />
+                <DisabledFileData Type="Normal" Path="Image/button_general_disabled.png" Plist="" />
+                <PressedFileData Type="Normal" Path="Image/button_general_press.png" Plist="" />
+                <NormalFileData Type="Normal" Path="Image/button_general_normal.png" Plist="" />
+                <OutlineColor A="255" R="255" G="0" B="0" />
+                <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
             </Children>
             <AnchorPoint ScaleY="1.0000" />
