@@ -16,7 +16,6 @@
 using namespace cocos2d::ui;
 
 const float Bubble::SCALE = 0.8f;
-const int Bubble::BOMB_RADIUS = 100;
 
 Bubble::Bubble(MainScene* scene, Node* board, int minSpeed, int maxSpeed)
 : _scene(scene)
@@ -52,13 +51,13 @@ void Bubble::onTouchBegan()
 {
     switch(getType()){
     case TYPE::BOMB:
-        onTouchSpecial("Particles/bomb.plist", [&](Bubble* other){
-            return isIncludeBombRadius(other);
+        onTouchSpecial("Particles/bomb.plist", [&](Bubble* other, ParticleSystemQuad* particle){
+            return isIncludeBombRadius(other, particle);
         });
         break;
     case TYPE::THUNDER:
-        onTouchSpecial("Particles/thunder.plist", [&](Bubble* other){
-            return isContainThunderRect(other);
+        onTouchSpecial("Particles/thunder.plist", [&](Bubble* other, ParticleSystemQuad* particle){
+            return isContainThunderRect(other, particle);
         });
         break;
     default:
@@ -83,7 +82,7 @@ void Bubble::onTouchNormal()
     }
 }
 
-void Bubble::onTouchSpecial(const std::string& particleName, std::function<bool(Bubble*)> judge)
+void Bubble::onTouchSpecial(const std::string& particleName, std::function<bool(Bubble*, ParticleSystemQuad*)> judge)
 {
     auto particle = ParticleSystemQuad::create(particleName);
     particle->setPosition(getPosition());
@@ -91,7 +90,7 @@ void Bubble::onTouchSpecial(const std::string& particleName, std::function<bool(
     scene->addChild(particle);
     const auto bubbles = scene->getBubbles();
     for(auto bubble: bubbles){
-        if(judge(bubble.get())){
+        if(judge(bubble.get(), particle)){
             bubble->onTouchNormal();
         }
     }
@@ -178,19 +177,20 @@ bool Bubble::isVisible()
     return _image->isVisible();
 }
 
-bool Bubble::isIncludeBombRadius(Bubble* other)
+bool Bubble::isIncludeBombRadius(Bubble* other, ParticleSystemQuad* particle)
 {
     const auto center = getPosition();
     const auto pos = other->getPosition();
     auto x = std::abs(pos.x - center.x);
     auto y = std::abs(pos.y - center.y);
     auto r = std::sqrt(std::pow(x, 2) + std::pow(y, 2));
-    return r < BOMB_RADIUS;
+    auto radius = particle->getPosVar().x / 2 + particle->getAngleVar();
+    return r < radius;
 }
 
-bool Bubble::isContainThunderRect(Bubble* other)
+bool Bubble::isContainThunderRect(Bubble* other, ParticleSystemQuad* particle)
 {
-    auto width = 50;
+    auto width = particle->getPosVar().x + 10;
     auto frameSize = getFrame()->getParent()->getContentSize();
     auto center = getPosition();
     auto pos = other->getPosition();

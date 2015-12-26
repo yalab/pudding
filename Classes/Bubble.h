@@ -18,13 +18,12 @@ using namespace cocos2d::ui;
 class MainScene;
 
 namespace NUMBER{
-    enum TYPE{ BOMB = 10, THUNDER = 5 };
+    enum TYPE{ BOMB = 3, THUNDER = 5 };
 }
 
 class Bubble{
 public:
     static const float SCALE;
-    static const int BOMB_RADIUS;
     enum TYPE {WHITE, RED, BLUE, YELLOW, BOMB, THUNDER, LAST};
     Bubble(MainScene* scene, Node* board, const int minSpeed, const int maxSpeed);
     virtual ~Bubble()
@@ -45,9 +44,9 @@ public:
 private:
     inline MainScene* getScene(){ return _scene; }
     inline Node* getFrame(){ return _frame; }
-    bool isIncludeBombRadius(Bubble* other);
-    bool isContainThunderRect(Bubble* other);
-    Vec2 getPosition(){ return _image->getPosition(); }
+    bool isIncludeBombRadius(Bubble* other, ParticleSystemQuad* particle);
+    bool isContainThunderRect(Bubble* other, ParticleSystemQuad* particle);
+    const Vec2 getPosition(){ return _image->getPosition(); }
     const int _maxSpeed;
     const int _minSpeed;
     void move();
@@ -55,7 +54,7 @@ private:
     const std::string path(TYPE type);
     void onTouchBegan();
     void onTouchNormal();
-    void onTouchSpecial(const std::string& particleName, std::function<bool(Bubble*)> );
+    void onTouchSpecial(const std::string& particleName, std::function<bool(Bubble*, ParticleSystemQuad*)> );
     TYPE _type;
     MainScene* _scene;
     Button* _image;
