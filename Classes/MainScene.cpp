@@ -39,7 +39,7 @@ void MainScene::onEnter()
     auto board = _csb->getChildByName("Board");
     setStageData(stageData);
     for(int i = 0; i < stageData.bubbleCount; i++){
-        auto bubble = Bubble::create(this, board, stageData.minSpeed, stageData.maxSpeed, true);
+        auto bubble = Bubble::create(this, board, stageData.minSpeed, stageData.maxSpeed);
         _bubbles.push_back(bubble);
     }
     for(int i = 0; i < Bubble::TYPE::LAST; i++){

@@ -15,9 +15,8 @@ using namespace cocos2d::ui;
 
 const float Bubble::SCALE = 0.8f;
 
-Bubble::Bubble(MainScene* scene, Node* board, int minSpeed, int maxSpeed, bool remobable)
+Bubble::Bubble(MainScene* scene, Node* board, int minSpeed, int maxSpeed)
 : _scene(scene)
-, _remobable(remobable)
 , _image(nullptr)
 , _frame(nullptr)
 , _minSpeed(minSpeed)
@@ -39,10 +38,10 @@ Bubble::Bubble(MainScene* scene, Node* board, int minSpeed, int maxSpeed, bool r
     move();
 }
 
-std::shared_ptr<Bubble> Bubble::create(MainScene* scene, Node* board, const int minSpeed, const int maxSpeed, bool remobable)
+std::shared_ptr<Bubble> Bubble::create(MainScene* scene, Node* board, const int minSpeed, const int maxSpeed)
 {
     auto boardSize = board->getContentSize();
-    auto bubble = std::make_shared<Bubble>(scene, board, minSpeed, maxSpeed, remobable);
+    auto bubble = std::make_shared<Bubble>(scene, board, minSpeed, maxSpeed);
     return bubble;
 }
 
