@@ -7,6 +7,7 @@
       <FilePathData Path="Image/icon_time.png" />
       <FilePathData Path="Image/icon_star_off.png" />
       <FilePathData Path="Image/icon_skull.png" />
+      <FilePathData Path="Image/icon_flash.png" />
     </ImageFiles>
     <MaxSize Width="1024" Height="1024" />
   </Content>

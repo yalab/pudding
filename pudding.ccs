@@ -17,6 +17,7 @@
           <Image Name="button_general_disabled.png" />
           <Image Name="button_general_normal.png" />
           <Image Name="button_general_press.png" />
+          <Image Name="icon_flash.png" />
         </Folder>
         <Folder Name="Fonts">
           <Fnt Name="BasicLabel.fnt" />

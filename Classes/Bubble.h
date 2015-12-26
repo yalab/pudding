@@ -17,11 +17,15 @@ using namespace cocos2d::ui;
 
 class MainScene;
 
+namespace NUMBER{
+    enum TYPE{ BOMB = 10, THUNDER = 5 };
+}
+
 class Bubble{
 public:
     static const float SCALE;
     static const int BOMB_RADIUS;
-    enum TYPE {WHITE, RED, BLUE, YELLOW, BOMB, LAST};
+    enum TYPE {WHITE, RED, BLUE, YELLOW, BOMB, THUNDER, LAST};
     Bubble(MainScene* scene, Node* board, const int minSpeed, const int maxSpeed);
     virtual ~Bubble()
     {
@@ -31,7 +35,6 @@ public:
     };
     static std::shared_ptr<Bubble> create(MainScene* scene, Node* board, const int minSpeed, const int maxSpeed);
     inline const TYPE getType(){ return _type; }
-    inline MainScene* getScene(){ return _scene; }
     void setRandomType();
     void setType(const TYPE type);
     void hide();
@@ -40,7 +43,10 @@ public:
     const std::string getCounterName();
     bool isVisible();
 private:
+    inline MainScene* getScene(){ return _scene; }
+    inline Node* getFrame(){ return _frame; }
     bool isIncludeBombRadius(Bubble* other);
+    bool isContainThunderRect(Bubble* other);
     Vec2 getPosition(){ return _image->getPosition(); }
     const int _maxSpeed;
     const int _minSpeed;
@@ -49,7 +55,7 @@ private:
     const std::string path(TYPE type);
     void onTouchBegan();
     void onTouchNormal();
-    void onTouchBomb();
+    void onTouchSpecial(const std::string& particleName, std::function<bool(Bubble*)> );
     TYPE _type;
     MainScene* _scene;
     Button* _image;

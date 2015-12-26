@@ -51,10 +51,16 @@ std::shared_ptr<Bubble> Bubble::create(MainScene* scene, Node* board, const int 
 void Bubble::onTouchBegan()
 {
     switch(getType()){
-    case TYPE::BOMB:{
-        onTouchBomb();
+    case TYPE::BOMB:
+        onTouchSpecial("Particles/bomb.plist", [&](Bubble* other){
+            return isIncludeBombRadius(other);
+        });
         break;
-    }
+    case TYPE::THUNDER:
+        onTouchSpecial("Particles/thunder.plist", [&](Bubble* other){
+            return isContainThunderRect(other);
+        });
+        break;
     default:
         onTouchNormal();
     }
@@ -65,7 +71,11 @@ void Bubble::onTouchNormal()
     hide();
     auto scene = getScene();
     scene->countBubble(this);
-    if(scene->getComboCount() % 5 == 0){
+    auto comboCount = scene->getComboCount();
+    if(comboCount % NUMBER::TYPE::THUNDER == 0){
+        setType(TYPE::THUNDER);
+        show();
+    } else if(comboCount % NUMBER::TYPE::BOMB == 0){
         setType(TYPE::BOMB);
         show();
     }else{
@@ -73,16 +83,15 @@ void Bubble::onTouchNormal()
     }
 }
 
-void Bubble::onTouchBomb()
+void Bubble::onTouchSpecial(const std::string& particleName, std::function<bool(Bubble*)> judge)
 {
-    auto particle = ParticleSystemQuad::create("Particles/bomb.plist");
+    auto particle = ParticleSystemQuad::create(particleName);
     particle->setPosition(getPosition());
-    particle->setContentSize(Size(BOMB_RADIUS, BOMB_RADIUS));
     auto scene = getScene();
     scene->addChild(particle);
     const auto bubbles = scene->getBubbles();
     for(auto bubble: bubbles){
-        if(isIncludeBombRadius(bubble.get())){
+        if(judge(bubble.get())){
             bubble->onTouchNormal();
         }
     }
@@ -101,6 +110,8 @@ const std::string Bubble::path(TYPE type)
             return "Image/icon_skull.png";
         case TYPE::BOMB:
             return "Image/icon_time.png";
+        case TYPE::THUNDER:
+            return "Image/icon_flash.png";
         case TYPE::LAST:
             CCASSERT(false, "TYPE::LAST is invalid.");
     }
@@ -175,4 +186,16 @@ bool Bubble::isIncludeBombRadius(Bubble* other)
     auto y = std::abs(pos.y - center.y);
     auto r = std::sqrt(std::pow(x, 2) + std::pow(y, 2));
     return r < BOMB_RADIUS;
+}
+
+bool Bubble::isContainThunderRect(Bubble* other)
+{
+    auto width = 50;
+    auto frameSize = getFrame()->getParent()->getContentSize();
+    auto center = getPosition();
+    auto pos = other->getPosition();
+    auto p1 = Vec2(center.x - width, 0);
+    auto p2 = Vec2(center.x + width, frameSize.height);
+    return p1.x <= pos.x && pos.x <= p2.x &&
+           p1.y <= pos.y && pos.y <= p2.y;
 }
