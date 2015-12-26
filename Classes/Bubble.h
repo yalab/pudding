@@ -42,6 +42,7 @@ public:
     const std::string getCounterName();
     bool isVisible();
 private:
+    void burst();
     inline MainScene* getScene(){ return _scene; }
     inline Node* getFrame(){ return _frame; }
     bool isIncludeBombRadius(Bubble* other, ParticleSystemQuad* particle);
@@ -53,8 +54,8 @@ private:
     void render();
     const std::string path(TYPE type);
     void onTouchBegan();
-    void onTouchNormal();
-    void onTouchSpecial(const std::string& particleName, std::function<bool(Bubble*, ParticleSystemQuad*)> );
+    void burstNormal();
+    void burstSpecial(const std::string& particleName, std::function<bool(Bubble*, ParticleSystemQuad*)> );
     TYPE _type;
     MainScene* _scene;
     Button* _image;

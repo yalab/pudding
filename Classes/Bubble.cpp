@@ -49,26 +49,34 @@ std::shared_ptr<Bubble> Bubble::create(MainScene* scene, Node* board, const int 
 
 void Bubble::onTouchBegan()
 {
+    burst();
+    getScene()->nextTurn();
+}
+
+void Bubble::burst()
+{
+    if(!isVisible()){
+        return;
+    }
+    hide();
     switch(getType()){
     case TYPE::BOMB:
-        onTouchSpecial("Particles/bomb.plist", [&](Bubble* other, ParticleSystemQuad* particle){
+        burstSpecial("Particles/bomb.plist", [&](Bubble* other, ParticleSystemQuad* particle){
             return isIncludeBombRadius(other, particle);
         });
         break;
     case TYPE::THUNDER:
-        onTouchSpecial("Particles/thunder.plist", [&](Bubble* other, ParticleSystemQuad* particle){
+        burstSpecial("Particles/thunder.plist", [&](Bubble* other, ParticleSystemQuad* particle){
             return isContainThunderRect(other, particle);
         });
         break;
     default:
-        onTouchNormal();
+        burstNormal();
     }
-    getScene()->nextTurn();
 }
 
-void Bubble::onTouchNormal()
+void Bubble::burstNormal()
 {
-    hide();
     auto scene = getScene();
     scene->countBubble(this);
     auto comboCount = scene->getComboCount();
@@ -83,7 +91,7 @@ void Bubble::onTouchNormal()
     }
 }
 
-void Bubble::onTouchSpecial(const std::string& particleName, std::function<bool(Bubble*, ParticleSystemQuad*)> judge)
+void Bubble::burstSpecial(const std::string& particleName, std::function<bool(Bubble*, ParticleSystemQuad*)> judge)
 {
     auto particle = ParticleSystemQuad::create(particleName);
     particle->setPosition(getPosition());
@@ -91,8 +99,11 @@ void Bubble::onTouchSpecial(const std::string& particleName, std::function<bool(
     scene->addChild(particle);
     const auto bubbles = scene->getBubbles();
     for(auto bubble: bubbles){
+        if(bubble.get() == this){
+            continue;
+        }
         if(judge(bubble.get(), particle)){
-            bubble->onTouchNormal();
+            bubble->burst();
         }
     }
 }
