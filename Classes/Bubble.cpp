@@ -10,10 +10,13 @@
 #include "MainScene.h"
 #include "CocosGUI.h"
 #include <random>
+#include <complex>
+#include <cmath>
 
 using namespace cocos2d::ui;
 
 const float Bubble::SCALE = 0.8f;
+const int Bubble::BOMB_RADIUS = 100;
 
 Bubble::Bubble(MainScene* scene, Node* board, int minSpeed, int maxSpeed)
 : _scene(scene)
@@ -47,9 +50,42 @@ std::shared_ptr<Bubble> Bubble::create(MainScene* scene, Node* board, const int 
 
 void Bubble::onTouchBegan()
 {
+    switch(getType()){
+    case TYPE::BOMB:{
+        onTouchBomb();
+        break;
+    }
+    default:
+        onTouchNormal();
+    }
+}
+
+void Bubble::onTouchNormal()
+{
     hide();
-    _scene->countBubble(this);
-    setRandomType();
+    auto scene = getScene();
+    scene->countBubble(this);
+    if(scene->getComboCount() % 5 == 0){
+        setType(TYPE::BOMB);
+        show();
+    }else{
+        setRandomType();
+    }
+}
+
+void Bubble::onTouchBomb()
+{
+    auto particle = ParticleSystemQuad::create("Particles/bomb.plist");
+    particle->setPosition(getPosition());
+    particle->setContentSize(Size(BOMB_RADIUS, BOMB_RADIUS));
+    auto scene = getScene();
+    scene->addChild(particle);
+    const auto bubbles = scene->getBubbles();
+    for(auto bubble: bubbles){
+        if(isIncludeBombRadius(bubble.get())){
+            bubble->onTouchNormal();
+        }
+    }
 }
 
 const std::string Bubble::path(TYPE type)
@@ -75,7 +111,12 @@ void Bubble::setRandomType()
     std::random_device rnd;
     std::mt19937 mt(rnd());
     std::uniform_int_distribution<> randomType(0, TYPE::BOMB - 1);
-    _type = static_cast<TYPE>(randomType(mt));
+    setType(static_cast<TYPE>(randomType(mt)));
+}
+
+void Bubble::setType(const TYPE type)
+{
+    _type = type;
     const std::string pathName = path(_type);
     _image->loadTextureNormal(pathName, Button::TextureResType::PLIST);
     _image->loadTextureDisabled(pathName, Button::TextureResType::PLIST);
@@ -87,6 +128,13 @@ void Bubble::hide()
     _image->setVisible(false);
     _invisibleTurn = static_cast<int>(getType()) + 1;
 }
+
+void Bubble::show()
+{
+    _image->setVisible(true);
+    _invisibleTurn = 0;
+}
+
 
 void Bubble::nextTurn()
 {
@@ -117,4 +165,14 @@ void Bubble::move()
 bool Bubble::isVisible()
 {
     return _image->isVisible();
+}
+
+bool Bubble::isIncludeBombRadius(Bubble* other)
+{
+    const auto center = getPosition();
+    const auto pos = other->getPosition();
+    auto x = std::abs(pos.x - center.x);
+    auto y = std::abs(pos.y - center.y);
+    auto r = std::sqrt(std::pow(x, 2) + std::pow(y, 2));
+    return r < BOMB_RADIUS;
 }

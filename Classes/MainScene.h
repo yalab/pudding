@@ -26,6 +26,7 @@ public:
     void countBubble(Bubble* bubble);
     inline void setCurrentType(Bubble::TYPE type){ _currentType = type; }
     inline void setStageNo(const int stageNo){ _stageNo = stageNo; }
+    inline const std::vector<const std::shared_ptr<Bubble>> getBubbles(){ return _bubbles; }
     virtual bool init();
     void onEnter();
     void onExit();
@@ -35,6 +36,7 @@ public:
     void nextTurn();
     void gameOver();
     void stageClear();
+    inline const int getComboCount(){ return _counts[Bubble::TYPE::BOMB]; };
 private:
     bool isClear();
     bool isGameOver();

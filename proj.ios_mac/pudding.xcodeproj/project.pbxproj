@@ -18,6 +18,7 @@
 		246650431C1D4A36009965CB /* ResultScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 246650411C1D4A36009965CB /* ResultScene.cpp */; };
 		249DE9D81BD3911400DEBAE5 /* Image in Resources */ = {isa = PBXBuildFile; fileRef = 249DE9D41BD3911400DEBAE5 /* Image */; };
 		249DE9DC1BD3A96B00DEBAE5 /* Bubble.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 249DE9DA1BD3A96B00DEBAE5 /* Bubble.cpp */; };
+		24E401D61C2E7B1500CC21D2 /* Particles in Resources */ = {isa = PBXBuildFile; fileRef = 24E401D51C2E7B1500CC21D2 /* Particles */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
 		46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46880B8419C43A87006E1F66 /* AppDelegate.cpp */; };
 		46880B8919C43A87006E1F66 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46880B8419C43A87006E1F66 /* AppDelegate.cpp */; };
@@ -116,6 +117,7 @@
 		249DE9D41BD3911400DEBAE5 /* Image */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Image; path = ../Resources/Image; sourceTree = "<group>"; };
 		249DE9DA1BD3A96B00DEBAE5 /* Bubble.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Bubble.cpp; sourceTree = "<group>"; };
 		249DE9DB1BD3A96B00DEBAE5 /* Bubble.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bubble.h; sourceTree = "<group>"; };
+		24E401D51C2E7B1500CC21D2 /* Particles */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Particles; path = ../Resources/Particles; sourceTree = "<group>"; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		46880B8419C43A87006E1F66 /* AppDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AppDelegate.cpp; sourceTree = "<group>"; };
 		46880B8519C43A87006E1F66 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -256,6 +258,7 @@
 		249DE9C51BD38FD900DEBAE5 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				24E401D51C2E7B1500CC21D2 /* Particles */,
 				240955111C1C3CDB00A95ABC /* Scene */,
 				242CC47B1C09AA4900C5E8B2 /* Fonts */,
 				249DE9D41BD3911400DEBAE5 /* Image */,
@@ -472,6 +475,7 @@
 				5087E78317EB970100C73F5D /* Icon-152.png in Resources */,
 				5087E77D17EB970100C73F5D /* Default-568h@2x.png in Resources */,
 				5087E78517EB970100C73F5D /* Icon-72.png in Resources */,
+				24E401D61C2E7B1500CC21D2 /* Particles in Resources */,
 				521A8E6519F0C34300D177D7 /* Default-736h@3x.png in Resources */,
 				50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */,
 				240955121C1C3CDB00A95ABC /* Scene in Resources */,

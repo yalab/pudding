@@ -27,3 +27,8 @@ npm-debug.log
 Breakpoints_v2.xcbkptlist
 UserInterfaceState.xcuserstate
 /Resources/*
+!/Resources/Sounds
+!/Resources/Particles
+!/Resources/Fonts
+/.keystore
+
