@@ -110,7 +110,6 @@ void MainScene::countBubble(Bubble* bubble)
     }
     setCounter(comboCount, _counts[Bubble::TYPE::BOMB]);
     setCounter(bubble->getCounterName(), _counts[bubble->getType()]);
-    nextTurn();
 }
 
 void MainScene::nextTurn()

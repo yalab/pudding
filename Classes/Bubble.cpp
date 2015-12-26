@@ -63,6 +63,7 @@ void Bubble::onTouchBegan()
     default:
         onTouchNormal();
     }
+    getScene()->nextTurn();
 }
 
 void Bubble::onTouchNormal()
