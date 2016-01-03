@@ -42,7 +42,7 @@ public:
     const int getCounterIndex();
     bool isVisible();
 private:
-    void burst();
+    void burst(bool secondary = false);
     inline MainScene* getScene(){ return _scene; }
     inline Node* getFrame(){ return _frame; }
     bool isIncludeBombRadius(Bubble* other, ParticleSystemQuad* particle);
@@ -54,7 +54,7 @@ private:
     void render();
     const std::string path(TYPE type);
     void onTouchBegan();
-    void burstNormal();
+    void burstNormal(bool secondary);
     void burstSpecial(const std::string& particleName, std::function<bool(Bubble*, ParticleSystemQuad*)> );
     TYPE _type;
     MainScene* _scene;

@@ -84,7 +84,7 @@ void MainScene::showStartMessage()
     showMessage(ss.str(), seq);
 }
 
-void MainScene::countBubble(Bubble* bubble)
+void MainScene::countBubble(Bubble* bubble, bool secondary)
 {
     _counts[bubble->getType()] ++;
     auto combo = _csb->getChildByName("combo_label");
@@ -92,7 +92,7 @@ void MainScene::countBubble(Bubble* bubble)
         _counts[Bubble::TYPE::BOMB] ++;
         combo->setVisible(true);
         incrementEffect(combo);
-    }else{
+    }else if(!secondary){
         combo->setVisible(false);
         _currentType = bubble->getType();
         _counts[Bubble::TYPE::BOMB] = 1;

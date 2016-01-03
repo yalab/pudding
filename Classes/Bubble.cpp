@@ -53,7 +53,7 @@ void Bubble::onTouchBegan()
     getScene()->nextTurn();
 }
 
-void Bubble::burst()
+void Bubble::burst(bool secondary)
 {
     if(!isVisible()){
         return;
@@ -71,14 +71,14 @@ void Bubble::burst()
         });
         break;
     default:
-        burstNormal();
+        burstNormal(secondary);
     }
 }
 
-void Bubble::burstNormal()
+void Bubble::burstNormal(bool secondary)
 {
     auto scene = getScene();
-    scene->countBubble(this);
+    scene->countBubble(this, secondary);
     auto comboCount = scene->getComboCount();
     if(comboCount % NUMBER::TYPE::THUNDER == 0){
         setType(TYPE::THUNDER);
@@ -103,7 +103,7 @@ void Bubble::burstSpecial(const std::string& particleName, std::function<bool(Bu
             continue;
         }
         if(judge(bubble.get(), particle)){
-            bubble->burst();
+            bubble->burst(true);
         }
     }
 }

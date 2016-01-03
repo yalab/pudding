@@ -23,7 +23,7 @@ public:
             _counts[i] = 0;
         }
     }
-    void countBubble(Bubble* bubble);
+    void countBubble(Bubble* bubble, bool secondary);
     inline void setCurrentType(Bubble::TYPE type){ _currentType = type; }
     inline void setStageNo(const int stageNo){ _stageNo = stageNo; }
     inline const std::vector<const std::shared_ptr<Bubble>> getBubbles(){ return _bubbles; }
