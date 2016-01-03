@@ -80,10 +80,12 @@ void Bubble::burstNormal(bool secondary)
     auto scene = getScene();
     scene->countBubble(this, secondary);
     auto comboCount = scene->getComboCount();
-    if(comboCount % NUMBER::TYPE::THUNDER == 0){
+    if(secondary){
+        setRandomType();
+    }else if(comboCount % NUMBER::TYPE::THUNDER == 0){
         setType(TYPE::THUNDER);
         show();
-    } else if(comboCount % NUMBER::TYPE::BOMB == 0){
+    }else if(comboCount % NUMBER::TYPE::BOMB == 0){
         setType(TYPE::BOMB);
         show();
     }else{
