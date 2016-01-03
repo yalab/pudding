@@ -10,8 +10,6 @@ USING_NS_CC;
 using namespace cocostudio;
 using namespace cocos2d::ui;
 
-std::string comboCount = "count_4";
-
 Scene* MainScene::createScene(const int stageNo)
 {
     auto scene = Scene::create();
@@ -35,7 +33,6 @@ bool MainScene::init()
 void MainScene::onEnter()
 {
     const StageData stageData = stagesData[_stageNo];
-    setCounter(comboCount, 0);
     auto board = _csb->getChildByName("Board");
     setStageData(stageData);
     for(int i = 0; i < stageData.bubbleCount; i++){
@@ -43,15 +40,7 @@ void MainScene::onEnter()
         _bubbles.push_back(bubble);
     }
     for(int i = 0; i < Bubble::TYPE::LAST; i++){
-        std::stringstream s;
-        s << "count_";
-        s << i;
-        setCounter(s.str(), 0);
-        
-        std::stringstream ss;
-        ss << "max_";
-        ss << i;
-        setCounter(ss.str(), _conditions[i]);
+        setCounter(i, 0);
     }
     nextTurn();
     setonEnterTransitionDidFinishCallback([&](){
@@ -108,8 +97,8 @@ void MainScene::countBubble(Bubble* bubble)
         _currentType = bubble->getType();
         _counts[Bubble::TYPE::BOMB] = 1;
     }
-    setCounter(comboCount, _counts[Bubble::TYPE::BOMB]);
-    setCounter(bubble->getCounterName(), _counts[bubble->getType()]);
+    setCounter(Bubble::TYPE::BOMB, _counts[Bubble::TYPE::BOMB]);
+    setCounter(bubble->getCounterIndex(), _counts[bubble->getType()]);
 }
 
 void MainScene::nextTurn()
@@ -158,10 +147,13 @@ bool MainScene::isGameOver()
     return false;
 }
 
-void MainScene::setCounter(const std::string& name, const int count)
+void MainScene::setCounter(const int i, const int count)
 {
+    auto name = "count_" + std::to_string(i);
     std::stringstream ss;
     ss << count;
+    ss << "/";
+    ss << _conditions[i];
     auto counter = static_cast<TextBMFont*>(_csb->getChildByName(name));
     if(counter == nullptr){
         return;

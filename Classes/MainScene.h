@@ -47,7 +47,7 @@ private:
     Node* _csb;
     void showStartMessage();
     int _turn;
-    void setCounter(const std::string& name, const int count);
+    void setCounter(const int i, const int count);
     std::array<int, Bubble::TYPE::LAST> _counts;
     std::array<int, Bubble::TYPE::LAST> _rates;
     std::array<int, Bubble::TYPE::LAST> _conditions;

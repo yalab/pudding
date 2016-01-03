@@ -168,9 +168,9 @@ void Bubble::nextTurn()
     }
 }
 
-const std::string Bubble::getCounterName()
+const int Bubble::getCounterIndex()
 {
-    return "count_" + std::to_string(static_cast<int>(getType()));
+    return static_cast<int>(getType());
 }
 
 void Bubble::move()

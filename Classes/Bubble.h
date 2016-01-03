@@ -39,7 +39,7 @@ public:
     void hide();
     void show();
     void nextTurn();
-    const std::string getCounterName();
+    const int getCounterIndex();
     bool isVisible();
 private:
     void burst();
