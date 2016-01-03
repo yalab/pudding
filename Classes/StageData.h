@@ -22,7 +22,7 @@ typedef struct StageData{
     const std::array<int, Bubble::TYPE::LAST> conditions;
 } StageData;
 
-extern std::vector<const StageData> stagesData;
+extern  const std::vector<const StageData> stagesData;
 extern const char* kplayableStageNo;
 
 #endif /* StageData_h */

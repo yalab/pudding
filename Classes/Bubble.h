@@ -41,6 +41,15 @@ public:
     void nextTurn();
     const int getCounterIndex();
     bool isVisible();
+    inline const int getPoint(){
+        switch (getType()) {
+            case TYPE::BOMB :
+            case TYPE::THUNDER :
+                return 10;
+            default:
+                return 5;
+        }
+    }
 private:
     void burst(bool secondary = false);
     inline MainScene* getScene(){ return _scene; }

@@ -17,6 +17,7 @@ public:
     : _currentType(Bubble::TYPE::LAST)
     , _turn(-1)
     , _turnLimit(0)
+    , _point(0)
     , _csb(nullptr)
     {
         for(int i = 0; i < Bubble::TYPE::LAST; i++){
@@ -31,7 +32,7 @@ public:
     void onEnter();
     void onExit();
     CREATE_FUNC(MainScene);
-    void incrementEffect(Node* node);
+    void incrementEffect(const int i);
     void setStageData(const StageData& stageData);
     void nextTurn();
     void gameOver();
@@ -52,6 +53,9 @@ private:
     std::array<int, Bubble::TYPE::LAST> _rates;
     std::array<int, Bubble::TYPE::LAST> _conditions;
     int _turnLimit;
+    int _point;
+    inline void addPoint(const int i){ _point += i; }
+    inline const int getPoint(){ return _point; }
 };
 
 #endif // __MAIN_SCENE_H__

@@ -40,110 +40,6 @@
             <EndColor A="255" R="255" G="255" B="255" />
             <ColorVector ScaleY="1.0000" />
           </AbstractNodeData>
-          <AbstractNodeData Name="icon_0" ActionTag="-556516422" Tag="7" IconVisible="False" LeftMargin="240.0000" RightMargin="320.0000" TopMargin="-10.0001" BottomMargin="890.0001" ctype="SpriteObjectData">
-            <Size X="80.0000" Y="80.0000" />
-            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="280.0000" Y="930.0001" />
-            <Scale ScaleX="0.4000" ScaleY="0.4000" />
-            <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.4375" Y="0.9688" />
-            <PreSize X="0.1250" Y="0.0833" />
-            <FileData Type="MarkedSubImage" Path="Image/icon_skull.png" Plist="Scene/MainScene/MainScene.plist" />
-            <BlendFunc Src="770" Dst="771" />
-          </AbstractNodeData>
-          <AbstractNodeData Name="icon_1" ActionTag="1272457335" Tag="5" IconVisible="False" LeftMargin="340.0000" RightMargin="220.0000" TopMargin="-10.0000" BottomMargin="890.0000" ctype="SpriteObjectData">
-            <Size X="80.0000" Y="80.0000" />
-            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="380.0000" Y="930.0000" />
-            <Scale ScaleX="0.5000" ScaleY="0.5000" />
-            <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.5938" Y="0.9688" />
-            <PreSize X="0.1250" Y="0.0833" />
-            <FileData Type="MarkedSubImage" Path="Image/icon_pumpkin.png" Plist="Scene/MainScene/MainScene.plist" />
-            <BlendFunc Src="770" Dst="771" />
-          </AbstractNodeData>
-          <AbstractNodeData Name="icon_2" ActionTag="624552279" Tag="10" IconVisible="False" LeftMargin="440.0000" RightMargin="120.0000" TopMargin="-10.0000" BottomMargin="890.0000" ctype="SpriteObjectData">
-            <Size X="80.0000" Y="80.0000" />
-            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="480.0000" Y="930.0000" />
-            <Scale ScaleX="0.5000" ScaleY="0.5000" />
-            <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.7500" Y="0.9688" />
-            <PreSize X="0.1250" Y="0.0833" />
-            <FileData Type="MarkedSubImage" Path="Image/icon_soul.png" Plist="Scene/MainScene/MainScene.plist" />
-            <BlendFunc Src="770" Dst="771" />
-          </AbstractNodeData>
-          <AbstractNodeData Name="icon_3" ActionTag="1667732652" Tag="12" IconVisible="False" LeftMargin="540.0000" RightMargin="20.0000" TopMargin="-10.0000" BottomMargin="890.0000" ctype="SpriteObjectData">
-            <Size X="80.0000" Y="80.0000" />
-            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="580.0000" Y="930.0000" />
-            <Scale ScaleX="0.5000" ScaleY="0.5000" />
-            <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.9063" Y="0.9688" />
-            <PreSize X="0.1250" Y="0.0833" />
-            <FileData Type="MarkedSubImage" Path="Image/icon_star_off.png" Plist="Scene/MainScene/MainScene.plist" />
-            <BlendFunc Src="770" Dst="771" />
-          </AbstractNodeData>
-          <AbstractNodeData Name="count_0" ActionTag="-445714848" Tag="8" IconVisible="False" LeftMargin="229.0000" RightMargin="309.0000" TopMargin="37.0000" BottomMargin="877.0000" LabelText="00/00" ctype="TextBMFontObjectData">
-            <Size X="102.0000" Y="46.0000" />
-            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="280.0000" Y="900.0000" />
-            <Scale ScaleX="1.0000" ScaleY="1.0000" />
-            <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.4375" Y="0.9375" />
-            <PreSize X="0.1594" Y="0.0479" />
-            <LabelBMFontFile_CNB Type="Normal" Path="Fonts/BasicLabel.fnt" Plist="" />
-          </AbstractNodeData>
-          <AbstractNodeData Name="count_1" ActionTag="-851579265" Tag="9" IconVisible="False" LeftMargin="329.0000" RightMargin="209.0000" TopMargin="37.0000" BottomMargin="877.0000" LabelText="00/00" ctype="TextBMFontObjectData">
-            <Size X="102.0000" Y="46.0000" />
-            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="380.0000" Y="900.0000" />
-            <Scale ScaleX="1.0000" ScaleY="1.0000" />
-            <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.5938" Y="0.9375" />
-            <PreSize X="0.1594" Y="0.0479" />
-            <LabelBMFontFile_CNB Type="Normal" Path="Fonts/BasicLabel.fnt" Plist="" />
-          </AbstractNodeData>
-          <AbstractNodeData Name="count_2" ActionTag="-464439381" Tag="11" IconVisible="False" LeftMargin="429.0000" RightMargin="109.0000" TopMargin="37.0000" BottomMargin="877.0000" LabelText="00/00" ctype="TextBMFontObjectData">
-            <Size X="102.0000" Y="46.0000" />
-            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="480.0000" Y="900.0000" />
-            <Scale ScaleX="1.0000" ScaleY="1.0000" />
-            <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.7500" Y="0.9375" />
-            <PreSize X="0.1594" Y="0.0479" />
-            <LabelBMFontFile_CNB Type="Normal" Path="Fonts/BasicLabel.fnt" Plist="" />
-          </AbstractNodeData>
-          <AbstractNodeData Name="count_3" ActionTag="1341008881" Tag="13" IconVisible="False" LeftMargin="529.0000" RightMargin="9.0000" TopMargin="37.0000" BottomMargin="877.0000" LabelText="00/00" ctype="TextBMFontObjectData">
-            <Size X="102.0000" Y="46.0000" />
-            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="580.0000" Y="900.0000" />
-            <Scale ScaleX="1.0000" ScaleY="1.0000" />
-            <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.9063" Y="0.9375" />
-            <PreSize X="0.1594" Y="0.0479" />
-            <LabelBMFontFile_CNB Type="Normal" Path="Fonts/BasicLabel.fnt" Plist="" />
-          </AbstractNodeData>
-          <AbstractNodeData Name="count_4" ActionTag="-661567336" Tag="7" IconVisible="False" LeftMargin="49.0000" RightMargin="489.0000" TopMargin="106.5200" BottomMargin="807.4800" LabelText="00/00" ctype="TextBMFontObjectData">
-            <Size X="102.0000" Y="46.0000" />
-            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="100.0000" Y="830.4800" />
-            <Scale ScaleX="2.0000" ScaleY="2.0000" />
-            <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.1563" Y="0.8651" />
-            <PreSize X="0.1594" Y="0.0479" />
-            <LabelBMFontFile_CNB Type="Normal" Path="Fonts/BasicLabel.fnt" Plist="" />
-          </AbstractNodeData>
-          <AbstractNodeData Name="combo_label" ActionTag="1886925383" Tag="13" IconVisible="False" LeftMargin="36.6713" RightMargin="485.3287" TopMargin="33.3862" BottomMargin="880.6138" LabelText="combo!" ctype="TextBMFontObjectData">
-            <Size X="118.0000" Y="46.0000" />
-            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="95.6713" Y="903.6138" />
-            <Scale ScaleX="1.5000" ScaleY="1.5000" />
-            <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.1495" Y="0.9413" />
-            <PreSize X="0.1844" Y="0.0479" />
-            <LabelBMFontFile_CNB Type="Normal" Path="Fonts/BasicLabel.fnt" Plist="" />
-          </AbstractNodeData>
           <AbstractNodeData Name="count_turn" ActionTag="-2013181577" Tag="32" IconVisible="False" LeftMargin="477.6364" RightMargin="22.3636" TopMargin="898.4090" BottomMargin="15.5910" LabelText="100/100" ctype="TextBMFontObjectData">
             <Size X="140.0000" Y="46.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
@@ -163,6 +59,121 @@
             <PrePosition X="0.9844" Y="0.8750" />
             <PreSize X="0.3078" Y="0.0479" />
             <LabelBMFontFile_CNB Type="Normal" Path="Fonts/BasicLabel.fnt" Plist="" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="counts" ActionTag="-1007830183" Tag="27" IconVisible="True" LeftMargin="180.0000" RightMargin="460.0000" TopMargin="80.0000" BottomMargin="880.0000" ctype="SingleNodeObjectData">
+            <Size X="0.0000" Y="0.0000" />
+            <Children>
+              <AbstractNodeData Name="icon_0" ActionTag="-556516422" Tag="7" IconVisible="False" LeftMargin="-40.0000" RightMargin="-40.0000" TopMargin="-80.0000" ctype="SpriteObjectData">
+                <Size X="80.0000" Y="80.0000" />
+                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                <Position Y="40.0000" />
+                <Scale ScaleX="0.4000" ScaleY="0.4000" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <PrePosition />
+                <PreSize X="0.0000" Y="0.0000" />
+                <FileData Type="MarkedSubImage" Path="Image/icon_skull.png" Plist="Scene/MainScene/MainScene.plist" />
+                <BlendFunc Src="770" Dst="771" />
+              </AbstractNodeData>
+              <AbstractNodeData Name="icon_1" ActionTag="1272457335" Tag="5" IconVisible="False" LeftMargin="60.0000" RightMargin="-140.0000" TopMargin="-80.0000" ctype="SpriteObjectData">
+                <Size X="80.0000" Y="80.0000" />
+                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                <Position X="100.0000" Y="40.0000" />
+                <Scale ScaleX="0.5000" ScaleY="0.5000" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <PrePosition />
+                <PreSize X="0.0000" Y="0.0000" />
+                <FileData Type="MarkedSubImage" Path="Image/icon_pumpkin.png" Plist="Scene/MainScene/MainScene.plist" />
+                <BlendFunc Src="770" Dst="771" />
+              </AbstractNodeData>
+              <AbstractNodeData Name="icon_2" ActionTag="624552279" Tag="10" IconVisible="False" LeftMargin="160.0000" RightMargin="-240.0000" TopMargin="-80.0000" ctype="SpriteObjectData">
+                <Size X="80.0000" Y="80.0000" />
+                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                <Position X="200.0000" Y="40.0000" />
+                <Scale ScaleX="0.5000" ScaleY="0.5000" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <PrePosition />
+                <PreSize X="0.0000" Y="0.0000" />
+                <FileData Type="MarkedSubImage" Path="Image/icon_soul.png" Plist="Scene/MainScene/MainScene.plist" />
+                <BlendFunc Src="770" Dst="771" />
+              </AbstractNodeData>
+              <AbstractNodeData Name="icon_3" ActionTag="1667732652" Tag="12" IconVisible="False" LeftMargin="260.0000" RightMargin="-340.0000" TopMargin="-80.0000" ctype="SpriteObjectData">
+                <Size X="80.0000" Y="80.0000" />
+                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                <Position X="300.0000" Y="40.0000" />
+                <Scale ScaleX="0.5000" ScaleY="0.5000" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <PrePosition />
+                <PreSize X="0.0000" Y="0.0000" />
+                <FileData Type="MarkedSubImage" Path="Image/icon_star_off.png" Plist="Scene/MainScene/MainScene.plist" />
+                <BlendFunc Src="770" Dst="771" />
+              </AbstractNodeData>
+              <AbstractNodeData Name="icon_4" ActionTag="1886925383" Tag="13" IconVisible="False" LeftMargin="385.5000" RightMargin="-414.5000" TopMargin="-63.0000" BottomMargin="17.0000" LabelText="C" ctype="TextBMFontObjectData">
+                <Size X="29.0000" Y="46.0000" />
+                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                <Position X="400.0000" Y="40.0000" />
+                <Scale ScaleX="1.5000" ScaleY="1.5000" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <PrePosition />
+                <PreSize X="0.0000" Y="0.0000" />
+                <LabelBMFontFile_CNB Type="Normal" Path="Fonts/BasicLabel.fnt" Plist="" />
+              </AbstractNodeData>
+              <AbstractNodeData Name="count_0" ActionTag="-445714848" Tag="8" IconVisible="False" LeftMargin="-51.0000" RightMargin="-51.0000" TopMargin="-23.0000" BottomMargin="-23.0000" LabelText="00/00" ctype="TextBMFontObjectData">
+                <Size X="102.0000" Y="46.0000" />
+                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                <Position />
+                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <PrePosition />
+                <PreSize X="0.0000" Y="0.0000" />
+                <LabelBMFontFile_CNB Type="Normal" Path="Fonts/BasicLabel.fnt" Plist="" />
+              </AbstractNodeData>
+              <AbstractNodeData Name="count_1" ActionTag="-851579265" Tag="9" IconVisible="False" LeftMargin="49.0000" RightMargin="-151.0000" TopMargin="-23.0000" BottomMargin="-23.0000" LabelText="00/00" ctype="TextBMFontObjectData">
+                <Size X="102.0000" Y="46.0000" />
+                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                <Position X="100.0000" />
+                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <PrePosition />
+                <PreSize X="0.0000" Y="0.0000" />
+                <LabelBMFontFile_CNB Type="Normal" Path="Fonts/BasicLabel.fnt" Plist="" />
+              </AbstractNodeData>
+              <AbstractNodeData Name="count_2" ActionTag="-464439381" Tag="11" IconVisible="False" LeftMargin="149.0000" RightMargin="-251.0000" TopMargin="-23.0000" BottomMargin="-23.0000" LabelText="00/00" ctype="TextBMFontObjectData">
+                <Size X="102.0000" Y="46.0000" />
+                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                <Position X="200.0000" />
+                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <PrePosition />
+                <PreSize X="0.0000" Y="0.0000" />
+                <LabelBMFontFile_CNB Type="Normal" Path="Fonts/BasicLabel.fnt" Plist="" />
+              </AbstractNodeData>
+              <AbstractNodeData Name="count_3" ActionTag="1341008881" Tag="13" IconVisible="False" LeftMargin="249.0000" RightMargin="-351.0000" TopMargin="-23.0000" BottomMargin="-23.0000" LabelText="00/00" ctype="TextBMFontObjectData">
+                <Size X="102.0000" Y="46.0000" />
+                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                <Position X="300.0000" />
+                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <PrePosition />
+                <PreSize X="0.0000" Y="0.0000" />
+                <LabelBMFontFile_CNB Type="Normal" Path="Fonts/BasicLabel.fnt" Plist="" />
+              </AbstractNodeData>
+              <AbstractNodeData Name="count_4" ActionTag="-661567336" Tag="7" IconVisible="False" LeftMargin="349.0000" RightMargin="-451.0000" TopMargin="-23.0000" BottomMargin="-23.0000" LabelText="00/00" ctype="TextBMFontObjectData">
+                <Size X="102.0000" Y="46.0000" />
+                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                <Position X="400.0000" />
+                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <PrePosition />
+                <PreSize X="0.0000" Y="0.0000" />
+                <LabelBMFontFile_CNB Type="Normal" Path="Fonts/BasicLabel.fnt" Plist="" />
+              </AbstractNodeData>
+            </Children>
+            <AnchorPoint />
+            <Position X="180.0000" Y="880.0000" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="0.2813" Y="0.9167" />
+            <PreSize X="0.0000" Y="0.0000" />
           </AbstractNodeData>
         </Children>
       </ObjectData>

@@ -8,7 +8,7 @@
 
 #include "StageData.h"
 
-std::vector<const StageData> stagesData = {
+const std::vector<const StageData> stagesData = {
     //                                                      rate             |    clear
     // bubbleCount, minSpeed, maxSpeed, turnLimit, white, red, blue, yellow, |  white, red, blue, yellow, combo
     {           20,       2,       5,        30, {  10,  10,   10,     10}, {     0,   0,    0,      0,    10}},

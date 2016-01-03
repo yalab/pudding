@@ -32,6 +32,8 @@ bool MainScene::init()
 
 void MainScene::onEnter()
 {
+    Layer::onEnter();
+    _csb->getChildByName<TextBMFont*>("point")->setString("0");
     const StageData stageData = stagesData[_stageNo];
     auto board = _csb->getChildByName("Board");
     setStageData(stageData);
@@ -56,7 +58,6 @@ void MainScene::onEnter()
         auto t = TransitionPageTurn::create(0.5, scene, true);
         Director::getInstance()->replaceScene(t);
     });
-    Layer::onEnter();
 }
 
 void MainScene::onExit()
@@ -87,18 +88,18 @@ void MainScene::showStartMessage()
 void MainScene::countBubble(Bubble* bubble, bool secondary)
 {
     _counts[bubble->getType()] ++;
-    auto combo = _csb->getChildByName("combo_label");
+    addPoint(bubble->getPoint());
+    _csb->getChildByName<TextBMFont*>("point")->setString(std::to_string(getPoint()));
     if(_currentType == bubble->getType()){
         _counts[Bubble::TYPE::BOMB] ++;
-        combo->setVisible(true);
-        incrementEffect(combo);
+        incrementEffect(Bubble::TYPE::BOMB);
     }else if(!secondary){
-        combo->setVisible(false);
         _currentType = bubble->getType();
         _counts[Bubble::TYPE::BOMB] = 1;
     }
     setCounter(Bubble::TYPE::BOMB, _counts[Bubble::TYPE::BOMB]);
     setCounter(bubble->getCounterIndex(), _counts[bubble->getType()]);
+    incrementEffect(bubble->getCounterIndex());
 }
 
 void MainScene::nextTurn()
@@ -154,20 +155,23 @@ void MainScene::setCounter(const int i, const int count)
     ss << count;
     ss << "/";
     ss << _conditions[i];
-    auto counter = static_cast<TextBMFont*>(_csb->getChildByName(name));
+    auto counter = static_cast<TextBMFont*>(_csb->getChildByName("counts")->getChildByName(name));
     if(counter == nullptr){
         return;
     }
     counter->setString(ss.str());
-    incrementEffect(counter);
 }
 
-void MainScene::incrementEffect(Node* node)
+void MainScene::incrementEffect(const int i)
 {
-    auto scale = node->cocos2d::Node::getScale();
-    auto seq = Sequence::create(ScaleTo::create(0.1f, scale * 1.2),
-                                ScaleTo::create(0.1f, scale      ), nullptr);
-    node->runAction(seq);
+    const std::vector<const std::string> names = {"icon", "count"};
+    for(auto& s: names){
+        auto node = _csb->getChildByName("counts")->getChildByName(s + "_" + std::to_string(i));
+        auto scale = node->cocos2d::Node::getScale();
+        auto seq = Sequence::create(ScaleTo::create(0.1f, scale * 1.2),
+                                    ScaleTo::create(0.1f, scale      ), nullptr);
+        node->runAction(seq);
+    }
 }
 
 void MainScene::setStageData(const StageData& stageData)
