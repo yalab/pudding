@@ -50,11 +50,7 @@ void MainScene::onEnter()
         showStartMessage();
     });
     auto button = static_cast<Widget*>(_csb->getChildByName("menu_button"));
-    button->setTouchEnabled(true);
-    button->addTouchEventListener([](Ref* ref, Widget::TouchEventType event){
-        if(event != Widget::TouchEventType::ENDED){
-            return;
-        }
+    onTouch(button, [](Ref* ref){
         auto scene = MapScene::createScene();
         auto t = TransitionPageTurn::create(0.5, scene, true);
         Director::getInstance()->replaceScene(t);

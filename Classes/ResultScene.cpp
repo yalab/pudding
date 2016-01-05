@@ -33,11 +33,7 @@ void ResultScene::onEnter()
 {
     Layer::onEnter();
     auto button = static_cast<Button*>(_csb->getChildByName("back_button"));
-    button->setTouchEnabled(true);
-    button->addTouchEventListener([](Ref* ref, Widget::TouchEventType type){
-        if(type != Widget::TouchEventType::ENDED){
-            return;
-        }
+    onTouch(button, [](Ref* ref){
         auto scene = MapScene::createScene();
         auto t = TransitionCrossFade::create(1.0, scene);
         Director::getInstance()->replaceScene(t);

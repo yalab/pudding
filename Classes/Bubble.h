@@ -11,6 +11,7 @@
 
 #include "cocos2d.h"
 #include "CocosGUI.h"
+#include "lib/Touchable.h"
 
 USING_NS_CC;
 using namespace cocos2d::ui;
@@ -21,7 +22,8 @@ namespace NUMBER{
     enum TYPE{ BOMB = 3, THUNDER = 5 };
 }
 
-class Bubble{
+class Bubble : private Touchable
+{
 public:
     static const float SCALE;
     enum TYPE {WHITE, RED, BLUE, YELLOW, BOMB, THUNDER, LAST};

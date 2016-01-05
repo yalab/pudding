@@ -10,10 +10,11 @@
 #define ResultScene_h
 
 #include "cocos2d.h"
+#include "lib/Touchable.h"
 
 using namespace cocos2d;
 
-class ResultScene : public cocos2d::Layer
+class ResultScene : public Layer, private Touchable
 {
 public:
     static Scene* createScene();

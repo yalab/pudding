@@ -43,18 +43,14 @@ bool MapScene::init()
         
         button->setPosition(Vec2(w * 100, h * 120));
         bg->addChild(button);
-        button->setTouchEnabled(true);
-        button->addTouchEventListener([stageNo](Ref* ref, Widget::TouchEventType eventType){
-        auto scene = MainScene::createScene(stageNo);
-        auto t = TransitionPageTurn::create(0.5, scene, false);
+        onTouch(button, [stageNo](Ref* ref){
+            auto scene = MainScene::createScene(stageNo);
+            auto t = TransitionPageTurn::create(0.5, scene, false);
             Director::getInstance()->replaceScene(t);
         });
     }
     auto resetButton = static_cast<Button*>(area->getChildByName("reset_button"));
-    resetButton->addTouchEventListener([](Ref* ref, Widget::TouchEventType event){
-        if(event != Widget::TouchEventType::ENDED){
-            return;
-        }
+    onTouch(resetButton, [](Ref* ref){
         UserDefault::getInstance()->setIntegerForKey(kplayableStageNo, 0);
         auto scene = MapScene::createScene();
         Director::getInstance()->replaceScene(scene);

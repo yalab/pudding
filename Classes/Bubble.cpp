@@ -30,10 +30,8 @@ Bubble::Bubble(MainScene* scene, Node* board, int minSpeed, int maxSpeed)
     _image = Button::create(pathName, pathName, pathName, Button::TextureResType::PLIST);
     _frame->addChild(_image);
     setRandomType();
-    _image->addTouchEventListener([&](Ref* ref, Widget::TouchEventType eventType){
-        if(eventType == Widget::TouchEventType::BEGAN){
-            onTouchBegan();
-        }
+    onTouch(_image, [&](Ref* ref){
+        onTouchBegan();
     });
     _image->setScale(Bubble::SCALE);
     board->addChild(_frame);
