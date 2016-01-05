@@ -1,0 +1,3 @@
+[submodule "Classes/lib"]
+	path = Classes/lib
+	url = git@github.com:oke-ya/cocos2d-x-lib.git
