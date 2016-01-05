@@ -10,10 +10,11 @@
 #define MapScene_h
 
 #include "cocos2d.h"
+#include "lib/Touchable.h"
 
 using namespace cocos2d;
 
-class MapScene : public cocos2d::Layer
+class MapScene : public cocos2d::Layer, private Touchable
 {
 public:
     static Scene* createScene();

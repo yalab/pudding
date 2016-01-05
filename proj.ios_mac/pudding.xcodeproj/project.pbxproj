@@ -14,6 +14,7 @@
 		240955121C1C3CDB00A95ABC /* Scene in Resources */ = {isa = PBXBuildFile; fileRef = 240955111C1C3CDB00A95ABC /* Scene */; };
 		2423608E1C1AC32200BE2806 /* MapScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2423608C1C1AC32200BE2806 /* MapScene.cpp */; };
 		242CC47C1C09AA4900C5E8B2 /* Fonts in Resources */ = {isa = PBXBuildFile; fileRef = 242CC47B1C09AA4900C5E8B2 /* Fonts */; };
+		2453226F1C3BCAAB000075D3 /* Touchable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2453226D1C3BCAAB000075D3 /* Touchable.cpp */; };
 		2454E5171C19635900D95F4D /* StageData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2454E5161C19635900D95F4D /* StageData.cpp */; };
 		246650431C1D4A36009965CB /* ResultScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 246650411C1D4A36009965CB /* ResultScene.cpp */; };
 		249DE9D81BD3911400DEBAE5 /* Image in Resources */ = {isa = PBXBuildFile; fileRef = 249DE9D41BD3911400DEBAE5 /* Image */; };
@@ -110,6 +111,8 @@
 		2423608C1C1AC32200BE2806 /* MapScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MapScene.cpp; sourceTree = "<group>"; };
 		2423608F1C1AC34A00BE2806 /* MapScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapScene.h; sourceTree = "<group>"; };
 		242CC47B1C09AA4900C5E8B2 /* Fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Fonts; path = ../Resources/Fonts; sourceTree = "<group>"; };
+		2453226D1C3BCAAB000075D3 /* Touchable.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Touchable.cpp; path = lib/Touchable.cpp; sourceTree = "<group>"; };
+		2453226E1C3BCAAB000075D3 /* Touchable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Touchable.h; path = lib/Touchable.h; sourceTree = "<group>"; };
 		2454E5151C19631000D95F4D /* StageData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StageData.h; sourceTree = "<group>"; };
 		2454E5161C19635900D95F4D /* StageData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = StageData.cpp; path = schema/StageData.cpp; sourceTree = "<group>"; };
 		246650411C1D4A36009965CB /* ResultScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ResultScene.cpp; sourceTree = "<group>"; };
@@ -246,6 +249,15 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		2453226C1C3BCAA0000075D3 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				2453226D1C3BCAAB000075D3 /* Touchable.cpp */,
+				2453226E1C3BCAAB000075D3 /* Touchable.h */,
+			);
+			name = lib;
+			sourceTree = "<group>";
+		};
 		2454E5141C1962FE00D95F4D /* schema */ = {
 			isa = PBXGroup;
 			children = (
@@ -309,6 +321,7 @@
 		46880B8319C43A87006E1F66 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				2453226C1C3BCAA0000075D3 /* lib */,
 				2454E5141C1962FE00D95F4D /* schema */,
 				46880B8419C43A87006E1F66 /* AppDelegate.cpp */,
 				46880B8519C43A87006E1F66 /* AppDelegate.h */,
@@ -516,6 +529,7 @@
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 				246650431C1D4A36009965CB /* ResultScene.cpp in Sources */,
+				2453226F1C3BCAAB000075D3 /* Touchable.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

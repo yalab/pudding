@@ -27,6 +27,7 @@ bool MainScene::init()
     }
     _csb = CSLoader::createNode("Scene/MainScene/MainScene.csb");
     this->addChild(_csb);
+    useTouchMaker(this);
     return true;
 }
 

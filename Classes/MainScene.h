@@ -3,12 +3,13 @@
 
 #include "cocos2d.h"
 #include "Bubble.h"
+#include "lib/Touchable.h"
 #include <array>
 
 class Bubble;
 class StageData;
 
-class MainScene : public cocos2d::Layer
+class MainScene : public cocos2d::Layer, private Touchable
 {
 public:
     static cocos2d::Scene* createScene(const int stageNo);
