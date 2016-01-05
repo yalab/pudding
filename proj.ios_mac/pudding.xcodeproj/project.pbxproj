@@ -15,6 +15,7 @@
 		2423608E1C1AC32200BE2806 /* MapScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2423608C1C1AC32200BE2806 /* MapScene.cpp */; };
 		242CC47C1C09AA4900C5E8B2 /* Fonts in Resources */ = {isa = PBXBuildFile; fileRef = 242CC47B1C09AA4900C5E8B2 /* Fonts */; };
 		2453226F1C3BCAAB000075D3 /* Touchable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2453226D1C3BCAAB000075D3 /* Touchable.cpp */; };
+		245322751C3BCF96000075D3 /* Alerm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 245322731C3BCF96000075D3 /* Alerm.cpp */; };
 		2454E5171C19635900D95F4D /* StageData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2454E5161C19635900D95F4D /* StageData.cpp */; };
 		246650431C1D4A36009965CB /* ResultScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 246650411C1D4A36009965CB /* ResultScene.cpp */; };
 		249DE9D81BD3911400DEBAE5 /* Image in Resources */ = {isa = PBXBuildFile; fileRef = 249DE9D41BD3911400DEBAE5 /* Image */; };
@@ -113,6 +114,8 @@
 		242CC47B1C09AA4900C5E8B2 /* Fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Fonts; path = ../Resources/Fonts; sourceTree = "<group>"; };
 		2453226D1C3BCAAB000075D3 /* Touchable.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Touchable.cpp; path = lib/Touchable.cpp; sourceTree = "<group>"; };
 		2453226E1C3BCAAB000075D3 /* Touchable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Touchable.h; path = lib/Touchable.h; sourceTree = "<group>"; };
+		245322731C3BCF96000075D3 /* Alerm.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Alerm.cpp; path = lib/Alerm.cpp; sourceTree = "<group>"; };
+		245322761C3BCFC0000075D3 /* Alerm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Alerm.h; path = lib/Alerm.h; sourceTree = "<group>"; };
 		2454E5151C19631000D95F4D /* StageData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StageData.h; sourceTree = "<group>"; };
 		2454E5161C19635900D95F4D /* StageData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = StageData.cpp; path = schema/StageData.cpp; sourceTree = "<group>"; };
 		246650411C1D4A36009965CB /* ResultScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ResultScene.cpp; sourceTree = "<group>"; };
@@ -254,6 +257,8 @@
 			children = (
 				2453226D1C3BCAAB000075D3 /* Touchable.cpp */,
 				2453226E1C3BCAAB000075D3 /* Touchable.h */,
+				245322731C3BCF96000075D3 /* Alerm.cpp */,
+				245322761C3BCFC0000075D3 /* Alerm.h */,
 			);
 			name = lib;
 			sourceTree = "<group>";
@@ -523,6 +528,7 @@
 				2454E5171C19635900D95F4D /* StageData.cpp in Sources */,
 				2423608E1C1AC32200BE2806 /* MapScene.cpp in Sources */,
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
+				245322751C3BCF96000075D3 /* Alerm.cpp in Sources */,
 				46880B8A19C43A87006E1F66 /* MainScene.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				249DE9DC1BD3A96B00DEBAE5 /* Bubble.cpp in Sources */,

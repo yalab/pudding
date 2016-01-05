@@ -175,6 +175,16 @@
             <PrePosition X="0.2813" Y="0.9167" />
             <PreSize X="0.0000" Y="0.0000" />
           </AbstractNodeData>
+          <AbstractNodeData Name="alerm" ActionTag="1589655692" Tag="18" IconVisible="False" LeftMargin="33.1627" RightMargin="504.8373" TopMargin="119.0744" BottomMargin="794.9256" LabelText="00:00" ctype="TextBMFontObjectData">
+            <Size X="102.0000" Y="46.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="84.1627" Y="817.9256" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="0.1315" Y="0.8520" />
+            <PreSize X="0.1594" Y="0.0479" />
+            <LabelBMFontFile_CNB Type="Normal" Path="Fonts/BasicLabel.fnt" Plist="" />
+          </AbstractNodeData>
         </Children>
       </ObjectData>
     </Content>

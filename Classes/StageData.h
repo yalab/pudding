@@ -18,6 +18,7 @@ typedef struct StageData{
     const int minSpeed;
     const int maxSpeed;
     const int turnLimit;
+    const int timeLimit;
     const std::array<int, Bubble::TYPE::LAST> rates;
     const std::array<int, Bubble::TYPE::LAST> conditions;
 } StageData;

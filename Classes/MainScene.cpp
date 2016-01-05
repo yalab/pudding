@@ -5,10 +5,31 @@
 #include "StageData.h"
 #include "MapScene.h"
 #include "ResultScene.h"
+#include <iomanip>
 
 USING_NS_CC;
 using namespace cocostudio;
 using namespace cocos2d::ui;
+
+void MainSceneAlerm::render()
+{
+    std::stringstream ss;
+    int d = getDay();
+    if(d > 0){
+        ss << d;
+        ss << "Days";
+    }
+    int h = getHour();
+    if(h < 0){
+        ss << h;
+        ss << ":";
+    }
+    ss << std::setfill('0') << std::setw(2) << getMin();
+    ss << ":";
+    int s = getSec();
+    ss << std::setfill('0') << std::setw(2) << s;
+    static_cast<TextBMFont*>(_node)->setString(ss.str());
+}
 
 Scene* MainScene::createScene(const int stageNo)
 {
@@ -45,6 +66,7 @@ void MainScene::onEnter()
     for(int i = 0; i < Bubble::TYPE::LAST; i++){
         setCounter(i, 0);
     }
+    setAlerm();
     nextTurn();
     setonEnterTransitionDidFinishCallback([&](){
         showStartMessage();
@@ -63,11 +85,32 @@ void MainScene::onExit()
     Layer::onExit();
 }
 
+void MainScene::setAlerm()
+{
+    auto alermDisplay = _csb->getChildByName("alerm");
+    if(getTimeLimit() > 1){
+        _alerm = std::make_shared<MainSceneAlerm>();
+        _alerm->setRemainningSec(getTimeLimit());
+        _alerm->start(alermDisplay);
+        _alerm->setFinishCallback([&](){
+            gameOver();
+        });
+    }else{
+        alermDisplay->removeFromParent();
+    }
+}
+
 void MainScene::showStartMessage()
 {
     Director::getInstance()->getEventDispatcher()->setEnabled(false);
     std::stringstream ss;
-    ss << std::to_string(_turnLimit) + "ターンいないに";
+    if(getTurnLimit() > 0){
+        ss << std::to_string(getTurnLimit()) + "ターン";
+    }
+    if(getTimeLimit() > 0){
+        ss << std::to_string(getTimeLimit()) + "sec";
+    }
+    ss << "いないに";
     ss << std::to_string(_conditions[Bubble::TYPE::BOMB]) + "コンボしよう";
     auto seq = Sequence::create(CallFuncN::create([](Ref* ref){
                                     static_cast<Node*>(ref)->setPosition(Vec2(480, 500));
@@ -181,6 +224,7 @@ void MainScene::setStageData(const StageData& stageData)
         _conditions[i] = stageData.conditions[i];
     }
     _turnLimit = stageData.turnLimit;
+    _timeLimit = stageData.timeLimit;
 }
 
 void MainScene::stageClear()

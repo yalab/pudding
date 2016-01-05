@@ -4,10 +4,18 @@
 #include "cocos2d.h"
 #include "Bubble.h"
 #include "lib/Touchable.h"
+#include "lib/ALerm.h"
 #include <array>
 
 class Bubble;
 class StageData;
+
+
+class MainSceneAlerm : public Alerm
+{
+public:
+    void render();
+};
 
 class MainScene : public cocos2d::Layer, private Touchable
 {
@@ -39,7 +47,11 @@ public:
     void gameOver();
     void stageClear();
     inline const int getComboCount(){ return _counts[Bubble::TYPE::BOMB]; };
+    inline const int getTimeLimit(){ return _timeLimit; }
+    inline const int getTurnLimit(){ return _turnLimit; }
 private:
+    void setAlerm();
+    std::shared_ptr<MainSceneAlerm> _alerm;
     bool isClear();
     bool isGameOver();
     void showMessage(const std::string message, FiniteTimeAction* actions);
@@ -54,6 +66,7 @@ private:
     std::array<int, Bubble::TYPE::LAST> _rates;
     std::array<int, Bubble::TYPE::LAST> _conditions;
     int _turnLimit;
+    int _timeLimit;
     int _point;
     inline void addPoint(const int i){ _point += i; }
     inline const int getPoint(){ return _point; }
