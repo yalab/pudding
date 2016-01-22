@@ -4,12 +4,7 @@
     <Group ctype="ResourceGroup">
       <RootFolder Name=".">
         <Folder Name="Image">
-          <Image Name="icon_pumpkin.png" />
           <Image Name="icon_question.png" />
-          <Image Name="icon_skull.png" />
-          <Image Name="icon_soul.png" />
-          <Image Name="icon_star_off.png" />
-          <Image Name="icon_time.png" />
           <Image Name="bg_message.png" />
           <Image Name="bg_story.png" />
           <Image Name="bg_beach.png" />
@@ -17,7 +12,16 @@
           <Image Name="button_general_disabled.png" />
           <Image Name="button_general_normal.png" />
           <Image Name="button_general_press.png" />
-          <Image Name="icon_flash.png" />
+          <Image Name="bg_1.png" />
+          <Image Name="bg_2.png" />
+          <Image Name="bubble-lightning.png" />
+          <Image Name="bubble-blue.png" />
+          <Image Name="bubble-fire.png" />
+          <Image Name="bubble-green.png" />
+          <Image Name="bubble-ice.png" />
+          <Image Name="bubble-red.png" />
+          <Image Name="bubble-wind.png" />
+          <Image Name="bubble-yellow.png" />
         </Folder>
         <Folder Name="Fonts">
           <Fnt Name="BasicLabel.fnt" />

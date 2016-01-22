@@ -2,13 +2,15 @@
   <PropertyGroup Name="MainScene" Type="Plist" ID="8c41ef26-5de9-4389-b030-bf0020930f25" Version="2.3.3.0" />
   <Content ExportType="Png" SortAlgorithm="MaxRects" PicturePadding="0" AllowRotation="True" AllowAnySize="False" AllowTrim="False" ctype="PlistInfoData">
     <ImageFiles>
-      <FilePathData Path="Image/icon_pumpkin.png" />
-      <FilePathData Path="Image/icon_soul.png" />
-      <FilePathData Path="Image/icon_time.png" />
-      <FilePathData Path="Image/icon_star_off.png" />
-      <FilePathData Path="Image/icon_skull.png" />
-      <FilePathData Path="Image/icon_flash.png" />
+      <FilePathData Path="Image/bubble-blue.png" />
+      <FilePathData Path="Image/bubble-fire.png" />
+      <FilePathData Path="Image/bubble-green.png" />
+      <FilePathData Path="Image/bubble-red.png" />
+      <FilePathData Path="Image/bubble-wind.png" />
+      <FilePathData Path="Image/bubble-yellow.png" />
+      <FilePathData Path="Image/bubble-ice.png" />
+      <FilePathData Path="Image/bubble-lightning.png" />
     </ImageFiles>
-    <MaxSize Width="1024" Height="1024" />
+    <MaxSize Width="2048" Height="2048" />
   </Content>
 </PlistInfoProjectFile>

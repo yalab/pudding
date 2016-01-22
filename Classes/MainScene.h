@@ -46,7 +46,7 @@ public:
     void nextTurn();
     void gameOver();
     void stageClear();
-    inline const int getComboCount(){ return _counts[Bubble::TYPE::BOMB]; };
+    inline const int getComboCount(){ return _counts[Bubble::TYPE::FIRE]; };
     inline const int getTimeLimit(){ return _timeLimit; }
     inline const int getTurnLimit(){ return _turnLimit; }
 private:

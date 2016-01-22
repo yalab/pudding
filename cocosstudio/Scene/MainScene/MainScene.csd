@@ -14,7 +14,7 @@
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.5000" Y="0.5000" />
             <PreSize X="1.0000" Y="1.0000" />
-            <FileData Type="Normal" Path="Image/bg_story.png" Plist="" />
+            <FileData Type="Normal" Path="Image/bg_1.png" Plist="" />
             <BlendFunc Src="770" Dst="771" />
           </AbstractNodeData>
           <AbstractNodeData Name="menu_button" ActionTag="-1373099952" Tag="33" IconVisible="False" LeftMargin="-9.5500" RightMargin="529.5500" TopMargin="870.0000" BottomMargin="-30.0000" Scale9Width="120" Scale9Height="120" ctype="ImageViewObjectData">
@@ -71,7 +71,7 @@
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition />
                 <PreSize X="0.0000" Y="0.0000" />
-                <FileData Type="MarkedSubImage" Path="Image/icon_skull.png" Plist="Scene/MainScene/MainScene.plist" />
+                <FileData Type="MarkedSubImage" Path="Image/bubble-blue.png" Plist="Scene/MainScene/MainScene.plist" />
                 <BlendFunc Src="770" Dst="771" />
               </AbstractNodeData>
               <AbstractNodeData Name="icon_1" ActionTag="1272457335" Tag="5" IconVisible="False" LeftMargin="60.0000" RightMargin="-140.0000" TopMargin="-80.0000" ctype="SpriteObjectData">
@@ -82,7 +82,7 @@
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition />
                 <PreSize X="0.0000" Y="0.0000" />
-                <FileData Type="MarkedSubImage" Path="Image/icon_pumpkin.png" Plist="Scene/MainScene/MainScene.plist" />
+                <FileData Type="MarkedSubImage" Path="Image/bubble-green.png" Plist="Scene/MainScene/MainScene.plist" />
                 <BlendFunc Src="770" Dst="771" />
               </AbstractNodeData>
               <AbstractNodeData Name="icon_2" ActionTag="624552279" Tag="10" IconVisible="False" LeftMargin="160.0000" RightMargin="-240.0000" TopMargin="-80.0000" ctype="SpriteObjectData">
@@ -93,7 +93,7 @@
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition />
                 <PreSize X="0.0000" Y="0.0000" />
-                <FileData Type="MarkedSubImage" Path="Image/icon_soul.png" Plist="Scene/MainScene/MainScene.plist" />
+                <FileData Type="MarkedSubImage" Path="Image/bubble-red.png" Plist="Scene/MainScene/MainScene.plist" />
                 <BlendFunc Src="770" Dst="771" />
               </AbstractNodeData>
               <AbstractNodeData Name="icon_3" ActionTag="1667732652" Tag="12" IconVisible="False" LeftMargin="260.0000" RightMargin="-340.0000" TopMargin="-80.0000" ctype="SpriteObjectData">
@@ -104,7 +104,7 @@
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition />
                 <PreSize X="0.0000" Y="0.0000" />
-                <FileData Type="MarkedSubImage" Path="Image/icon_star_off.png" Plist="Scene/MainScene/MainScene.plist" />
+                <FileData Type="MarkedSubImage" Path="Image/bubble-yellow.png" Plist="Scene/MainScene/MainScene.plist" />
                 <BlendFunc Src="770" Dst="771" />
               </AbstractNodeData>
               <AbstractNodeData Name="icon_4" ActionTag="1886925383" Tag="13" IconVisible="False" LeftMargin="385.5000" RightMargin="-414.5000" TopMargin="-63.0000" BottomMargin="17.0000" LabelText="C" ctype="TextBMFontObjectData">
@@ -116,6 +116,16 @@
                 <PrePosition />
                 <PreSize X="0.0000" Y="0.0000" />
                 <LabelBMFontFile_CNB Type="Normal" Path="Fonts/BasicLabel.fnt" Plist="" />
+              </AbstractNodeData>
+              <AbstractNodeData Name="Image_2" ActionTag="-1545406579" Tag="20" IconVisible="False" LeftMargin="360.0000" RightMargin="-440.0000" TopMargin="-80.0000" Scale9Width="80" Scale9Height="80" ctype="ImageViewObjectData">
+                <Size X="80.0000" Y="80.0000" />
+                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                <Position X="400.0000" Y="40.0000" />
+                <Scale ScaleX="0.5000" ScaleY="0.5000" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <PrePosition />
+                <PreSize X="0.0000" Y="0.0000" />
+                <FileData Type="MarkedSubImage" Path="Image/bubble-fire.png" Plist="Scene/MainScene/MainScene.plist" />
               </AbstractNodeData>
               <AbstractNodeData Name="count_0" ActionTag="-445714848" Tag="8" IconVisible="False" LeftMargin="-51.0000" RightMargin="-51.0000" TopMargin="-23.0000" BottomMargin="-23.0000" LabelText="00/00" ctype="TextBMFontObjectData">
                 <Size X="102.0000" Y="46.0000" />

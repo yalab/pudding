@@ -58,7 +58,7 @@ void Bubble::burst(bool secondary)
     }
     hide();
     switch(getType()){
-    case TYPE::BOMB:
+    case TYPE::FIRE:
         burstSpecial("Particles/bomb.plist", [&](Bubble* other, ParticleSystemQuad* particle){
             return isIncludeBombRadius(other, particle);
         });
@@ -83,8 +83,8 @@ void Bubble::burstNormal(bool secondary)
     }else if(comboCount % NUMBER::TYPE::THUNDER == 0){
         setType(TYPE::THUNDER);
         show();
-    }else if(comboCount % NUMBER::TYPE::BOMB == 0){
-        setType(TYPE::BOMB);
+    }else if(comboCount % NUMBER::TYPE::FIRE == 0){
+        setType(TYPE::FIRE);
         show();
     }else{
         setRandomType();
@@ -112,17 +112,21 @@ const std::string Bubble::path(TYPE type)
 {
     switch(type){
         case TYPE::BLUE:
-            return "Image/icon_soul.png";
+            return "Image/bubble-blue.png";
         case TYPE::RED:
-            return "Image/icon_pumpkin.png";
+            return "Image/bubble-red.png";
         case TYPE::YELLOW:
-            return "Image/icon_star_off.png";
-        case TYPE::WHITE:
-            return "Image/icon_skull.png";
-        case TYPE::BOMB:
-            return "Image/icon_time.png";
+            return "Image/bubble-yellow.png";
+        case TYPE::GREEN:
+            return "Image/bubble-green.png";
+        case TYPE::FIRE:
+            return "Image/bubble-fire.png";
         case TYPE::THUNDER:
-            return "Image/icon_flash.png";
+            return "Image/bubble-lightning.png";
+        case TYPE::ICE:
+            return "Image/bubble-ice.png";
+        case TYPE::WIND:
+            return "Image/bubble-wind.png";
         case TYPE::LAST:
             CCASSERT(false, "TYPE::LAST is invalid.");
     }
@@ -132,7 +136,7 @@ void Bubble::setRandomType()
 {
     std::random_device rnd;
     std::mt19937 mt(rnd());
-    std::uniform_int_distribution<> randomType(0, TYPE::BOMB - 1);
+    std::uniform_int_distribution<> randomType(0, TYPE::FIRE - 1);
     setType(static_cast<TYPE>(randomType(mt)));
 }
 

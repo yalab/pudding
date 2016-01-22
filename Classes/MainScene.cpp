@@ -111,7 +111,7 @@ void MainScene::showStartMessage()
         ss << std::to_string(getTimeLimit()) + "sec";
     }
     ss << "いないに";
-    ss << std::to_string(_conditions[Bubble::TYPE::BOMB]) + "コンボしよう";
+    ss << std::to_string(_conditions[Bubble::TYPE::FIRE]) + "コンボしよう";
     auto seq = Sequence::create(CallFuncN::create([](Ref* ref){
                                     static_cast<Node*>(ref)->setPosition(Vec2(480, 500));
                                 }),
@@ -131,13 +131,13 @@ void MainScene::countBubble(Bubble* bubble, bool secondary)
     addPoint(bubble->getPoint());
     _csb->getChildByName<TextBMFont*>("point")->setString(std::to_string(getPoint()));
     if(_currentType == bubble->getType()){
-        _counts[Bubble::TYPE::BOMB] ++;
-        incrementEffect(Bubble::TYPE::BOMB);
+        _counts[Bubble::TYPE::FIRE] ++;
+        incrementEffect(Bubble::TYPE::FIRE);
     }else if(!secondary){
         _currentType = bubble->getType();
-        _counts[Bubble::TYPE::BOMB] = 1;
+        _counts[Bubble::TYPE::FIRE] = 1;
     }
-    setCounter(Bubble::TYPE::BOMB, _counts[Bubble::TYPE::BOMB]);
+    setCounter(Bubble::TYPE::FIRE, _counts[Bubble::TYPE::FIRE]);
     setCounter(bubble->getCounterIndex(), _counts[bubble->getType()]);
     incrementEffect(bubble->getCounterIndex());
 }

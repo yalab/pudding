@@ -19,14 +19,14 @@ using namespace cocos2d::ui;
 class MainScene;
 
 namespace NUMBER{
-    enum TYPE{ BOMB = 3, THUNDER = 5 };
+    enum TYPE{ FIRE = 3, THUNDER = 5 };
 }
 
 class Bubble : private Touchable
 {
 public:
     static const float SCALE;
-    enum TYPE {WHITE, RED, BLUE, YELLOW, BOMB, THUNDER, LAST};
+    enum TYPE {GREEN, RED, BLUE, YELLOW, FIRE, THUNDER, WIND, ICE, LAST};
     Bubble(MainScene* scene, Node* board, const int minSpeed, const int maxSpeed);
     virtual ~Bubble()
     {
@@ -45,7 +45,7 @@ public:
     bool isVisible();
     inline const int getPoint(){
         switch (getType()) {
-            case TYPE::BOMB :
+            case TYPE::FIRE :
             case TYPE::THUNDER :
                 return 10;
             default:
