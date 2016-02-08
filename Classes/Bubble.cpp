@@ -185,6 +185,14 @@ void Bubble::move()
     auto seq = Sequence::create(MoveTo::create(10.0/d, p), CallFunc::create([&](){
         move();
     }), nullptr);
+    _image->stopAllActions();
+    
+    float t = random(0.3, 0.8);
+    float volume = random(0.8, 1.4);
+    auto infrate = ScaleTo::create(t, volume);
+    auto defate  = ScaleTo::create(t, 1.0);
+    auto frate = RepeatForever::create(Sequence::create(infrate, defate, nullptr));
+    _image->runAction(frate);
     _image->runAction(seq);
 }
 
