@@ -102,6 +102,20 @@
 			remoteGlobalIDString = A07A4C241783777C0073F6A7;
 			remoteInfo = "cocos2dx iOS";
 		};
+		244640B11C6DBE0300C0B727 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 244640AD1C6DBE0300C0B727 /* PluginIAP.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 05A9357E19260E2E00F08DC0;
+			remoteInfo = PluginIAP;
+		};
+		244640B71C6DBE1700C0B727 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 244640B31C6DBE1700C0B727 /* PluginProtocol.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = FA09A321168ADBC2008C1C7B;
+			remoteInfo = PluginProtocol;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -114,6 +128,10 @@
 		2423608C1C1AC32200BE2806 /* MapScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MapScene.cpp; sourceTree = "<group>"; };
 		2423608F1C1AC34A00BE2806 /* MapScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapScene.h; sourceTree = "<group>"; };
 		242CC47B1C09AA4900C5E8B2 /* Fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Fonts; path = ../Resources/Fonts; sourceTree = "<group>"; };
+		244640AD1C6DBE0300C0B727 /* PluginIAP.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PluginIAP.xcodeproj; path = ../Vendor/PluginXIosIap/proj.ios/PluginIAP.xcodeproj; sourceTree = "<group>"; };
+		244640B31C6DBE1700C0B727 /* PluginProtocol.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PluginProtocol.xcodeproj; path = ../Vendor/PluginXProtocols/proj.ios/PluginProtocol.xcodeproj; sourceTree = "<group>"; };
+		244640B91C6DBEB600C0B727 /* Env.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Env.h; sourceTree = "<group>"; };
+		244640BA1C6DBEE100C0B727 /* EnvPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnvPrivate.h; sourceTree = "<group>"; };
 		2453226D1C3BCAAB000075D3 /* Touchable.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Touchable.cpp; path = lib/Touchable.cpp; sourceTree = "<group>"; };
 		2453226E1C3BCAAB000075D3 /* Touchable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Touchable.h; path = lib/Touchable.h; sourceTree = "<group>"; };
 		245322731C3BCF96000075D3 /* Alerm.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Alerm.cpp; path = lib/Alerm.cpp; sourceTree = "<group>"; };
@@ -258,6 +276,22 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		244640AE1C6DBE0300C0B727 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				244640B21C6DBE0300C0B727 /* libPluginIAP.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		244640B41C6DBE1700C0B727 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				244640B81C6DBE1700C0B727 /* libPluginProtocol.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		2453226C1C3BCAA0000075D3 /* lib */ = {
 			isa = PBXGroup;
 			children = (
@@ -296,6 +330,8 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				244640B31C6DBE1700C0B727 /* PluginProtocol.xcodeproj */,
+				244640AD1C6DBE0300C0B727 /* PluginIAP.xcodeproj */,
 				249DE9C51BD38FD900DEBAE5 /* Resources */,
 				46880B8319C43A87006E1F66 /* Classes */,
 				1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */,
@@ -336,6 +372,8 @@
 		46880B8319C43A87006E1F66 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				244640BA1C6DBEE100C0B727 /* EnvPrivate.h */,
+				244640B91C6DBEB600C0B727 /* Env.h */,
 				2453226C1C3BCAA0000075D3 /* lib */,
 				2454E5141C1962FE00D95F4D /* schema */,
 				46880B8419C43A87006E1F66 /* AppDelegate.cpp */,
@@ -464,6 +502,14 @@
 					ProductGroup = 1AC6FAE6180E9839004C840B /* Products */;
 					ProjectRef = 1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */;
 				},
+				{
+					ProductGroup = 244640AE1C6DBE0300C0B727 /* Products */;
+					ProjectRef = 244640AD1C6DBE0300C0B727 /* PluginIAP.xcodeproj */;
+				},
+				{
+					ProductGroup = 244640B41C6DBE1700C0B727 /* Products */;
+					ProjectRef = 244640B31C6DBE1700C0B727 /* PluginProtocol.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
@@ -486,6 +532,20 @@
 			fileType = archive.ar;
 			path = "libcocos2d iOS.a";
 			remoteRef = 1AC6FB06180E9839004C840B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		244640B21C6DBE0300C0B727 /* libPluginIAP.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libPluginIAP.a;
+			remoteRef = 244640B11C6DBE0300C0B727 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		244640B81C6DBE1700C0B727 /* libPluginProtocol.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libPluginProtocol.a;
+			remoteRef = 244640B71C6DBE1700C0B727 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -599,6 +659,10 @@
 					"$(inherited)",
 					"$(SRCROOT)/../cocos2d/cocos/platform/ios",
 					"$(SRCROOT)/../cocos2d/cocos/platform/ios/Simulation",
+					"$(SRCROOT)/../cocos2d/external/curl/include/ios/",
+					"$(SRCROOT)/../Vendor/PluginXProtocols/include",
+					"$(SRCROOT)/../cocos2d/external/curl/include/ios",
+					/opt/boxen/homebrew/opt/openssl/include,
 				);
 				INFOPLIST_FILE = ios/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
@@ -634,6 +698,10 @@
 					"$(inherited)",
 					"$(SRCROOT)/../cocos2d/cocos/platform/ios",
 					"$(SRCROOT)/../cocos2d/cocos/platform/ios/Simulation",
+					"$(SRCROOT)/../cocos2d/external/curl/include/ios/",
+					"$(SRCROOT)/../Vendor/PluginXProtocols/include",
+					"$(SRCROOT)/../cocos2d/external/curl/include/ios",
+					/opt/boxen/homebrew/opt/openssl/include,
 				);
 				INFOPLIST_FILE = ios/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
