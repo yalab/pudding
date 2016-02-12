@@ -20,6 +20,7 @@ typedef struct StageData{
     const int turnLimit;
     const int timeLimit;
     const std::array<int, Bubble::TYPE::LAST> rates;
+    const std::array<int, Bubble::TYPE::LAST> specials;
     const std::array<int, Bubble::TYPE::LAST> conditions;
 } StageData;
 

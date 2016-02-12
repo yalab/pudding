@@ -18,10 +18,6 @@ using namespace cocos2d::ui;
 
 class MainScene;
 
-namespace NUMBER{
-    enum TYPE{ FIRE = 3, THUNDER = 5 };
-}
-
 class Bubble : private Touchable
 {
 public:
@@ -44,12 +40,10 @@ public:
     const int getCounterIndex();
     bool isVisible();
     inline const int getPoint(){
-        switch (getType()) {
-            case TYPE::FIRE :
-            case TYPE::THUNDER :
-                return 10;
-            default:
-                return 5;
+        if(getType() >= TYPE::FIRE){
+            return 10;
+        }else{
+            return 5;
         }
     }
 private:

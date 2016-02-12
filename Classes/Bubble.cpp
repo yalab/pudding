@@ -77,14 +77,11 @@ void Bubble::burstNormal(bool secondary)
 {
     auto scene = getScene();
     scene->countBubble(this, secondary);
+    const StageData stageData = getScene()->getStageData();
     auto comboCount = scene->getComboCount();
-    if(secondary){
-        setRandomType();
-    }else if(comboCount % NUMBER::TYPE::THUNDER == 0){
-        setType(TYPE::THUNDER);
-        show();
-    }else if(comboCount % NUMBER::TYPE::FIRE == 0){
-        setType(TYPE::FIRE);
+    const int special = stageData.specials[getType()];
+    if(!secondary &&  special > 0 && comboCount % special == 0){
+        setType(static_cast<Bubble::TYPE>(static_cast<int>(getType()) + 3));
         show();
     }else{
         setRandomType();
