@@ -1,0 +1,94 @@
+-dontwarn okio.**
+-optimizationpasses 5
+-dontusemixedcaseclassnames
+-dontskipnonpubliclibraryclasses 
+-dontpreverify
+-verbose
+-optimizations !code/simplification/arithmetic,!field/*,!class/merging/* 
+
+-keep public class * extends android.app.Activity
+-keep public class * extends android.app.Application
+-keep public class * extends android.app.Service
+-keep public class * extends android.content.BroadcastReceiver
+-keep public class * extends android.content.ContentProvider
+-keep public class * extends android.app.backup.BackupAgentHelper
+-keep public class * extends android.preference.Preference
+-keep public class com.android.vending.licensing.ILicensingService
+
+-keepclasseswithmembernames class * {
+    native <methods>;
+}
+
+-keepclasseswithmembers class * {
+    public <init>(android.content.Context, android.util.AttributeSet);
+}
+
+-keepclasseswithmembers class * {
+    public <init>(android.content.Context, android.util.AttributeSet, int);
+}
+
+-keepclassmembers class * extends android.app.Activity {
+   public void *(android.view.View);
+}
+
+-keepclassmembers enum * {
+    public static **[] values();
+    public static ** valueOf(java.lang.String);
+}
+
+# COCOS2D-X
+
+-keepclasseswithmembers public class org.cocos2dx.lib.** {
+    *;
+}
+
+-keepclasseswithmembers public class org.cocos2dx.plugin.** {
+    *;
+}
+
+-keepclassmembers public class com.chukong.cocosplay.client.** {
+    *;
+}
+
+# ADMOB
+-keep public class com.google.android.gms.ads.** {
+   public *;
+}
+
+-keep public class com.google.ads.** {
+   public *;
+}
+
+# GooglePlay IAP
+
+-keep class com.android.vending.billing.**
+
+
+# GooglePlayService
+
+-keep class * extends java.util.ListResourceBundle {
+    protected Object[][] getContents();
+}
+
+-keep public class com.google.android.gms.common.internal.safeparcel.SafeParcelable {
+    public static final *** NULL;
+}
+
+-keepnames @com.google.android.gms.common.annotation.KeepName class *
+-keepclassmembernames class * {
+    @com.google.android.gms.common.annotation.KeepName *;
+}
+
+-keepnames class * implements android.os.Parcelable {
+    public static final ** CREATOR;
+}
+
+-keep class com.chartboost.** { *; }
+
+-keep class twitter4j.** { *; }
+-dontwarn twitter4j.management.**
+-dontwarn twitter4j.**
+-dontwarn oauth.signpost.jetty.HttpRequestAdapter
+-dontwarn org.cocos2dx.plugin.TwitterApp
+-dontwarn oauth.signpost.signature.OAuthMessageSigner
+-dontwarn oauth.signpost.jetty.JettyOAuthConsumer
