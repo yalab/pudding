@@ -21,6 +21,8 @@
 		249DE9D81BD3911400DEBAE5 /* Image in Resources */ = {isa = PBXBuildFile; fileRef = 249DE9D41BD3911400DEBAE5 /* Image */; };
 		249DE9DC1BD3A96B00DEBAE5 /* Bubble.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 249DE9DA1BD3A96B00DEBAE5 /* Bubble.cpp */; };
 		24E401D61C2E7B1500CC21D2 /* Particles in Resources */ = {isa = PBXBuildFile; fileRef = 24E401D51C2E7B1500CC21D2 /* Particles */; };
+		24F4D8271C6DB815004818EB /* CentralClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 24F4D8231C6DB815004818EB /* CentralClient.cpp */; };
+		24F4D8281C6DB815004818EB /* RestClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 24F4D8251C6DB815004818EB /* RestClient.cpp */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
 		46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46880B8419C43A87006E1F66 /* AppDelegate.cpp */; };
 		46880B8919C43A87006E1F66 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46880B8419C43A87006E1F66 /* AppDelegate.cpp */; };
@@ -124,6 +126,10 @@
 		249DE9DA1BD3A96B00DEBAE5 /* Bubble.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Bubble.cpp; sourceTree = "<group>"; };
 		249DE9DB1BD3A96B00DEBAE5 /* Bubble.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bubble.h; sourceTree = "<group>"; };
 		24E401D51C2E7B1500CC21D2 /* Particles */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Particles; path = ../Resources/Particles; sourceTree = "<group>"; };
+		24F4D8231C6DB815004818EB /* CentralClient.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CentralClient.cpp; path = lib/CentralClient.cpp; sourceTree = "<group>"; };
+		24F4D8241C6DB815004818EB /* CentralClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CentralClient.h; path = lib/CentralClient.h; sourceTree = "<group>"; };
+		24F4D8251C6DB815004818EB /* RestClient.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = RestClient.cpp; path = lib/RestClient.cpp; sourceTree = "<group>"; };
+		24F4D8261C6DB815004818EB /* RestClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RestClient.h; path = lib/RestClient.h; sourceTree = "<group>"; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		46880B8419C43A87006E1F66 /* AppDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AppDelegate.cpp; sourceTree = "<group>"; };
 		46880B8519C43A87006E1F66 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -255,6 +261,10 @@
 		2453226C1C3BCAA0000075D3 /* lib */ = {
 			isa = PBXGroup;
 			children = (
+				24F4D8231C6DB815004818EB /* CentralClient.cpp */,
+				24F4D8241C6DB815004818EB /* CentralClient.h */,
+				24F4D8251C6DB815004818EB /* RestClient.cpp */,
+				24F4D8261C6DB815004818EB /* RestClient.h */,
 				2453226D1C3BCAAB000075D3 /* Touchable.cpp */,
 				2453226E1C3BCAAB000075D3 /* Touchable.h */,
 				245322731C3BCF96000075D3 /* Alerm.cpp */,
@@ -535,7 +545,9 @@
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 				246650431C1D4A36009965CB /* ResultScene.cpp in Sources */,
+				24F4D8271C6DB815004818EB /* CentralClient.cpp in Sources */,
 				2453226F1C3BCAAB000075D3 /* Touchable.cpp in Sources */,
+				24F4D8281C6DB815004818EB /* RestClient.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
