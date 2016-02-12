@@ -2,7 +2,6 @@
 #include "editor-support/cocostudio/CocoStudio.h"
 #include "CocosGUI.h"
 #include "Bubble.h"
-#include "StageData.h"
 #include "MapScene.h"
 #include "ResultScene.h"
 #include <iomanip>
@@ -56,9 +55,8 @@ void MainScene::onEnter()
 {
     Layer::onEnter();
     _csb->getChildByName<TextBMFont*>("point")->setString("0");
-    const StageData stageData = stagesData[_stageNo];
+    const StageData stageData = getStageData();
     auto board = _csb->getChildByName("Board");
-    setStageData(stageData);
     for(int i = 0; i < stageData.bubbleCount; i++){
         auto bubble = Bubble::create(this, board, stageData.minSpeed, stageData.maxSpeed);
         _bubbles.push_back(bubble);
@@ -88,9 +86,10 @@ void MainScene::onExit()
 void MainScene::setAlerm()
 {
     auto alermDisplay = _csb->getChildByName("alerm");
-    if(getTimeLimit() > 1){
+    const auto timeLimit = getStageData().timeLimit;
+    if(timeLimit > 1){
         _alerm = std::make_shared<MainSceneAlerm>();
-        _alerm->setRemainningSec(getTimeLimit());
+        _alerm->setRemainningSec(timeLimit);
         _alerm->start(alermDisplay);
         _alerm->setFinishCallback([&](){
             gameOver();
@@ -104,14 +103,15 @@ void MainScene::showStartMessage()
 {
     Director::getInstance()->getEventDispatcher()->setEnabled(false);
     std::stringstream ss;
-    if(getTurnLimit() > 0){
-        ss << std::to_string(getTurnLimit()) + "ターン";
+    const StageData stageData = getStageData();
+    if(stageData.turnLimit > 0){
+        ss << std::to_string(stageData.turnLimit) + "ターン";
     }
-    if(getTimeLimit() > 0){
-        ss << std::to_string(getTimeLimit()) + "sec";
+    if(stageData.timeLimit > 0){
+        ss << std::to_string(stageData.timeLimit) + "sec";
     }
     ss << "いないに";
-    ss << std::to_string(_conditions[Bubble::TYPE::FIRE]) + "コンボしよう";
+    ss << std::to_string(stageData.conditions[Bubble::TYPE::FIRE]) + "コンボしよう";
     auto seq = Sequence::create(CallFuncN::create([](Ref* ref){
                                     static_cast<Node*>(ref)->setPosition(Vec2(480, 500));
                                 }),
@@ -155,7 +155,7 @@ void MainScene::nextTurn()
     std::stringstream ss;
     ss << std::to_string(_turn);
     ss << "/";
-    ss << std::to_string(_turnLimit);
+    ss << std::to_string(getStageData().turnLimit);
     auto turnLabel = static_cast<TextBMFont*>(_csb->getChildByName("count_turn"));
     turnLabel->setString(ss.str());
     if(isGameOver()){
@@ -166,17 +166,18 @@ void MainScene::nextTurn()
 bool MainScene::isClear()
 {
     auto clearConditions = 0;
-    for(int i = 0; i < _conditions.size(); i++){
-        if(_counts.at(i) >= _conditions[i]){
+    const StageData stageData = getStageData();
+    for(int i = 0; i < stageData.conditions.size(); i++){
+        if(_counts.at(i) >= stageData.conditions[i]){
             clearConditions++;
         }
     }
-    return clearConditions >= _conditions.size();
+    return clearConditions >= stageData.conditions.size();
 }
 
 bool MainScene::isGameOver()
 {
-    if(_turn >= _turnLimit){
+    if(_turn >= getStageData().turnLimit){
         return true;
     }
     auto itr = std::find_if(_bubbles.begin(), _bubbles.end(), [](std::shared_ptr<Bubble> bubble){
@@ -194,7 +195,7 @@ void MainScene::setCounter(const int i, const int count)
     std::stringstream ss;
     ss << count;
     ss << "/";
-    ss << _conditions[i];
+    ss << getStageData().conditions[i];
     auto counter = static_cast<TextBMFont*>(_csb->getChildByName("counts")->getChildByName(name));
     if(counter == nullptr){
         return;
@@ -214,19 +215,7 @@ void MainScene::incrementEffect(const int i)
     }
 }
 
-void MainScene::setStageData(const StageData& stageData)
-{
-    for(int i = 0; i < stageData.rates.size(); i++){
-        _rates[i] = stageData.rates[i];
-    }
-
-    for(int i = 0; i < stageData.conditions.size(); i++){
-        _conditions[i] = stageData.conditions[i];
-    }
-    _turnLimit = stageData.turnLimit;
-    _timeLimit = stageData.timeLimit;
-}
-
+\
 void MainScene::stageClear()
 {
     UserDefault::getInstance()->setIntegerForKey(kplayableStageNo, _stageNo + 1);

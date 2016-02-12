@@ -3,13 +3,12 @@
 
 #include "cocos2d.h"
 #include "Bubble.h"
+#include "StageData.h"
 #include "lib/Touchable.h"
 #include "lib/ALerm.h"
 #include <array>
 
 class Bubble;
-class StageData;
-
 
 class MainSceneAlerm : public Alerm
 {
@@ -25,7 +24,6 @@ public:
     MainScene()
     : _currentType(Bubble::TYPE::LAST)
     , _turn(-1)
-    , _turnLimit(0)
     , _point(0)
     , _csb(nullptr)
     {
@@ -40,15 +38,13 @@ public:
     virtual bool init();
     void onEnter();
     void onExit();
+    inline const StageData getStageData(){ return stagesData[_stageNo]; }
     CREATE_FUNC(MainScene);
     void incrementEffect(const int i);
-    void setStageData(const StageData& stageData);
     void nextTurn();
     void gameOver();
     void stageClear();
     inline const int getComboCount(){ return _counts[Bubble::TYPE::FIRE]; };
-    inline const int getTimeLimit(){ return _timeLimit; }
-    inline const int getTurnLimit(){ return _turnLimit; }
 private:
     void setAlerm();
     std::shared_ptr<MainSceneAlerm> _alerm;
@@ -63,10 +59,6 @@ private:
     int _turn;
     void setCounter(const int i, const int count);
     std::array<int, Bubble::TYPE::LAST> _counts;
-    std::array<int, Bubble::TYPE::LAST> _rates;
-    std::array<int, Bubble::TYPE::LAST> _conditions;
-    int _turnLimit;
-    int _timeLimit;
     int _point;
     inline void addPoint(const int i){ _point += i; }
     inline const int getPoint(){ return _point; }
