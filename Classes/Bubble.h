@@ -22,7 +22,7 @@ class Bubble : private Touchable
 {
 public:
     static const float SCALE;
-    enum TYPE {GREEN, RED, BLUE, YELLOW, FIRE, THUNDER, WIND, ICE, LAST};
+    enum TYPE {GREEN, RED, BLUE, YELLOW, LAST};
     Bubble(MainScene* scene, Node* board, const int minSpeed, const int maxSpeed);
     virtual ~Bubble()
     {
@@ -40,11 +40,7 @@ public:
     const int getCounterIndex();
     bool isVisible();
     inline const int getPoint(){
-        if(getType() >= TYPE::FIRE){
-            return 10;
-        }else{
-            return 5;
-        }
+        return 5;
     }
 private:
     void burst(bool secondary = false);
@@ -66,6 +62,9 @@ private:
     Button* _image;
     Node* _frame;
     int _invisibleTurn;
+    bool _special;
 };
+
+constexpr int COUNTER_N = Bubble::TYPE::LAST + 1;
 
 #endif /* defined(__pudding__Bubble__) */

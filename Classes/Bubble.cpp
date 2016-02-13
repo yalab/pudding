@@ -24,6 +24,7 @@ Bubble::Bubble(MainScene* scene, Node* board, int minSpeed, int maxSpeed)
 , _minSpeed(minSpeed)
 , _maxSpeed(maxSpeed)
 , _invisibleTurn(0)
+, _special(false)
 {
     _frame = Node::create();
     auto pathName = path(Bubble::TYPE::BLUE);
@@ -57,19 +58,24 @@ void Bubble::burst(bool secondary)
         return;
     }
     hide();
+    
+    if(!_special){
+        burstNormal(secondary);
+        return;
+    }
     switch(getType()){
-    case TYPE::FIRE:
+    case TYPE::RED:
         burstSpecial("Particles/bomb.plist", [&](Bubble* other){
             return isIncludeRadius(other, 200);
         });
         break;
-    case TYPE::THUNDER:
+    case TYPE::YELLOW:
         burstSpecial("Particles/thunder.plist", [&](Bubble* other){
             return isContainStrait(other, 20, true);
         });
         break;
     default:
-        burstNormal(secondary);
+        break;
     }
 }
 
@@ -81,7 +87,8 @@ void Bubble::burstNormal(bool secondary)
     auto comboCount = scene->getComboCount();
     const int special = stageData.specials[getType()];
     if(!secondary &&  special > 0 && comboCount % special == 0){
-        setType(static_cast<Bubble::TYPE>(static_cast<int>(getType()) + 3));
+        _special = true;
+        setType(getType());
         show();
     }else{
         setRandomType();
@@ -107,7 +114,21 @@ void Bubble::burstSpecial(const std::string& particleName, std::function<bool(Bu
 
 const std::string Bubble::path(TYPE type)
 {
-    switch(type){
+    if(_special){
+        switch(type){
+        case TYPE::RED:
+            return "Image/bubble-fire.png";
+        case TYPE::YELLOW:
+            return "Image/bubble-lightning.png";
+        case TYPE::BLUE:
+            return "Image/bubble-ice.png";
+        case TYPE::GREEN:
+            return "Image/bubble-wind.png";
+        default:
+            CCASSERT(false, "TYPE::LAST is invalid.");
+        }
+    }else{
+        switch(type){
         case TYPE::BLUE:
             return "Image/bubble-blue.png";
         case TYPE::RED:
@@ -116,16 +137,9 @@ const std::string Bubble::path(TYPE type)
             return "Image/bubble-yellow.png";
         case TYPE::GREEN:
             return "Image/bubble-green.png";
-        case TYPE::FIRE:
-            return "Image/bubble-fire.png";
-        case TYPE::THUNDER:
-            return "Image/bubble-lightning.png";
-        case TYPE::ICE:
-            return "Image/bubble-ice.png";
-        case TYPE::WIND:
-            return "Image/bubble-wind.png";
-        case TYPE::LAST:
+        default:
             CCASSERT(false, "TYPE::LAST is invalid.");
+        }
     }
 }
 
@@ -133,7 +147,7 @@ void Bubble::setRandomType()
 {
     std::random_device rnd;
     std::mt19937 mt(rnd());
-    std::uniform_int_distribution<> randomType(0, TYPE::FIRE - 1);
+    std::uniform_int_distribution<> randomType(0, TYPE::LAST - 1);
     setType(static_cast<TYPE>(randomType(mt)));
 }
 

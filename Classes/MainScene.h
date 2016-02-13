@@ -26,10 +26,8 @@ public:
     , _turn(-1)
     , _point(0)
     , _csb(nullptr)
+    , _counts({0, 0, 0, 0, 0})
     {
-        for(int i = 0; i < Bubble::TYPE::LAST; i++){
-            _counts[i] = 0;
-        }
     }
     void countBubble(Bubble* bubble, bool secondary);
     inline void setCurrentType(Bubble::TYPE type){ _currentType = type; }
@@ -44,7 +42,7 @@ public:
     void nextTurn();
     void gameOver();
     void stageClear();
-    inline const int getComboCount(){ return _counts[Bubble::TYPE::FIRE]; };
+    inline const int getComboCount(){ return _counts[Bubble::TYPE::LAST]; };
 private:
     void setAlerm();
     std::shared_ptr<MainSceneAlerm> _alerm;
@@ -58,7 +56,7 @@ private:
     void showStartMessage();
     int _turn;
     void setCounter(const int i, const int count);
-    std::array<int, Bubble::TYPE::LAST> _counts;
+    std::array<int, COUNTER_N> _counts;
     int _point;
     inline void addPoint(const int i){ _point += i; }
     inline const int getPoint(){ return _point; }

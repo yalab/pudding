@@ -21,7 +21,7 @@ typedef struct StageData{
     const int timeLimit;
     const std::array<int, Bubble::TYPE::LAST> rates;
     const std::array<int, Bubble::TYPE::LAST> specials;
-    const std::array<int, Bubble::TYPE::LAST> conditions;
+    const std::array<int, COUNTER_N> conditions;
 } StageData;
 
 extern  const std::vector<const StageData> stagesData;
