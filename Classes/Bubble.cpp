@@ -59,13 +59,13 @@ void Bubble::burst(bool secondary)
     hide();
     switch(getType()){
     case TYPE::FIRE:
-        burstSpecial("Particles/bomb.plist", [&](Bubble* other, ParticleSystemQuad* particle){
-            return isIncludeBombRadius(other, particle);
+        burstSpecial("Particles/bomb.plist", [&](Bubble* other){
+            return isIncludeRadius(other, 200);
         });
         break;
     case TYPE::THUNDER:
-        burstSpecial("Particles/thunder.plist", [&](Bubble* other, ParticleSystemQuad* particle){
-            return isContainThunderRect(other, particle);
+        burstSpecial("Particles/thunder.plist", [&](Bubble* other){
+            return isContainStrait(other, 20, true);
         });
         break;
     default:
@@ -88,7 +88,7 @@ void Bubble::burstNormal(bool secondary)
     }
 }
 
-void Bubble::burstSpecial(const std::string& particleName, std::function<bool(Bubble*, ParticleSystemQuad*)> judge)
+void Bubble::burstSpecial(const std::string& particleName, std::function<bool(Bubble*)> hitTest)
 {
     auto particle = ParticleSystemQuad::create(particleName);
     particle->setPosition(getPosition());
@@ -99,7 +99,7 @@ void Bubble::burstSpecial(const std::string& particleName, std::function<bool(Bu
         if(bubble.get() == this){
             continue;
         }
-        if(judge(bubble.get(), particle)){
+        if(hitTest(bubble.get())){
             bubble->burst(true);
         }
     }
@@ -198,25 +198,29 @@ bool Bubble::isVisible()
     return _image->isVisible();
 }
 
-bool Bubble::isIncludeBombRadius(Bubble* other, ParticleSystemQuad* particle)
+bool Bubble::isIncludeRadius(Bubble* other, const int radius)
 {
-    const auto center = getPosition();
-    const auto pos = other->getPosition();
-    auto x = std::abs(pos.x - center.x);
-    auto y = std::abs(pos.y - center.y);
+    const auto p1 = getPosition();
+    const auto p2 = other->getPosition();
+    auto x = std::abs(p2.x - p1.x);
+    auto y = std::abs(p2.y - p1.y);
     auto r = std::sqrt(std::pow(x, 2) + std::pow(y, 2));
-    auto radius = particle->getPosVar().x / 2 + particle->getAngleVar();
     return r < radius;
 }
 
-bool Bubble::isContainThunderRect(Bubble* other, ParticleSystemQuad* particle)
+bool Bubble::isContainStrait(Bubble* other, const int interval, const bool vertical)
 {
-    auto width = particle->getPosVar().x + 10;
     auto frameSize = getFrame()->getParent()->getContentSize();
     auto center = getPosition();
     auto pos = other->getPosition();
-    auto p1 = Vec2(center.x - width, 0);
-    auto p2 = Vec2(center.x + width, frameSize.height);
+    Vec2 p1, p2;
+    if(vertical){
+        p1 = Vec2(center.x - interval, 0);
+        p2 = Vec2(center.x + interval, frameSize.height);
+    }else{
+        p1 = Vec2(0, center.y - interval);
+        p2 = Vec2(frameSize.height, center.y + interval);
+    }
     return p1.x <= pos.x && pos.x <= p2.x &&
            p1.y <= pos.y && pos.y <= p2.y;
 }

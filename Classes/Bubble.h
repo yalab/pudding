@@ -50,8 +50,8 @@ private:
     void burst(bool secondary = false);
     inline MainScene* getScene(){ return _scene; }
     inline Node* getFrame(){ return _frame; }
-    bool isIncludeBombRadius(Bubble* other, ParticleSystemQuad* particle);
-    bool isContainThunderRect(Bubble* other, ParticleSystemQuad* particle);
+    bool isIncludeRadius(Bubble* other, const int radius);
+    bool isContainStrait(Bubble* other, const int interval, const bool vertical);
     const Vec2 getPosition(){ return _image->getPosition(); }
     const int _maxSpeed;
     const int _minSpeed;
@@ -60,7 +60,7 @@ private:
     const std::string path(TYPE type);
     void onTouchBegan();
     void burstNormal(bool secondary);
-    void burstSpecial(const std::string& particleName, std::function<bool(Bubble*, ParticleSystemQuad*)> );
+    void burstSpecial(const std::string& particleName, std::function<bool(Bubble* bubble)> hitTest);
     TYPE _type;
     MainScene* _scene;
     Button* _image;
