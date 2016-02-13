@@ -74,6 +74,14 @@ void Bubble::burst(bool secondary)
             return isContainStrait(other, 20, true);
         });
         break;
+    case TYPE::GREEN:
+        burstSpecial("Particles/thunder.plist", [&](Bubble* other){
+            return isContainStrait(other, 20, false);
+        });
+        break;
+    case TYPE::BLUE:
+        stopAll(2.0);
+        break;
     default:
         break;
     }
@@ -124,7 +132,7 @@ const std::string Bubble::path(TYPE type)
             return "Image/bubble-ice.png";
         case TYPE::GREEN:
             return "Image/bubble-wind.png";
-        default:
+        case TYPE::LAST:
             CCASSERT(false, "TYPE::LAST is invalid.");
         }
     }else{
@@ -137,7 +145,7 @@ const std::string Bubble::path(TYPE type)
             return "Image/bubble-yellow.png";
         case TYPE::GREEN:
             return "Image/bubble-green.png";
-        default:
+        case TYPE::LAST:
             CCASSERT(false, "TYPE::LAST is invalid.");
         }
     }
@@ -206,6 +214,24 @@ void Bubble::move()
     _image->runAction(frate);
     _image->runAction(seq);
 }
+
+void Bubble::stop(const float sec)
+{
+    _image->stopAllActions();
+    _image->scheduleOnce([&](float dt){
+        move();
+    }, sec, "stop");
+}
+
+void Bubble::stopAll(const float sec)
+{
+    auto scene = getScene();
+    const auto bubbles = scene->getBubbles();
+    for(auto bubble: bubbles){
+        bubble->stop(sec);
+    }
+}
+
 
 bool Bubble::isVisible()
 {

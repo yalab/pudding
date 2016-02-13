@@ -57,6 +57,8 @@ private:
     void onTouchBegan();
     void burstNormal(bool secondary);
     void burstSpecial(const std::string& particleName, std::function<bool(Bubble* bubble)> hitTest);
+    void stop(const float sec);
+    void stopAll(const float sec);
     TYPE _type;
     MainScene* _scene;
     Button* _image;
